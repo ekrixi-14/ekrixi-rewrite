@@ -22,15 +22,6 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-
-#    jumpsuit: ClothingShirtTShirtCommand
-#    lowerClothing: ClothingPantsJeans
-#    mask: ClothingMaskBandBlue
-#    eyes: ClothingEyesGlassesSunglasses
-#    ears: ClothingHeadsetAltCommand
-#    outerClothing: ClothingOuterCoatTrenchDark
-#    pocket2: BasicPager
-
     belt: Machete
     pocket1: WeaponRevolverDeckard
     eyes: ClothingEyesGlassesSunglasses

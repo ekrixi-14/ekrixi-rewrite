@@ -2,7 +2,7 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
-  - CaptainJumpsuit
+  - CaptainShirt
   - CaptainOuterClothing
   - CommonPants
   - CommonBackpack
@@ -13,12 +13,10 @@
 - type: roleLoadout
   id: JobPilot
   groups:
-  - PilotHead
-  - PilotNeck
-  - PilotJumpsuit
-  - PilotOuterClothing
+  - PilotShirt
+  - PilotPants
+  - CommandOuterClothing
   - CommonBackpack
-  - CommonPants
   - GenericShoes
   - GenericFace
   - Trinkets

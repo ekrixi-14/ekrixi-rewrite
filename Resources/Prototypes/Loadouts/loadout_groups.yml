@@ -52,11 +52,27 @@
 
 # Command
 - type: loadoutGroup
-  id: CaptainJumpsuit
-  name: loadout-group-captain-jumpsuit
+  id: CaptainShirt
+  name: loadout-group-captain-shirt
   loadouts:
   - ShirtCommand
   - ShirtWhite
+
+- type: loadoutGroup
+  id: PilotShirt
+  name: loadout-group-pilot-shirt
+  loadouts:
+  - ShirtPilot
+  - ShirtCommand
+  - ShirtWhite
+
+- type: loadoutGroup
+  id: PilotPants
+  name: loadout-group-captain-pants
+  loadouts:
+  - PantsPilot
+  - JeansNormal
+  - JeansRipped
 
 - type: loadoutGroup
   id: CaptainOuterClothing
@@ -66,6 +82,14 @@
   - TrenchNormal
   - TrenchLight
   - CaptainWintercoat
+
+- type: loadoutGroup
+  id: CommandOuterClothing
+  name: loadout-group-captain-outerclothing
+  loadouts:
+  - TrenchDark
+  - TrenchNormal
+  - TrenchLight
 
 # Civilian
 - type: loadoutGroup
