@@ -1,0 +1,17 @@
+- type: loadout
+  id: ShirtCommand
+  equipment: ShirtCommand
+
+- type: startingGear
+  id: ShirtCommand
+  equipment:
+    jumpsuit: ClothingShirtTShirtCommand
+
+- type: loadout
+  id: ShirtWhite
+  equipment: ShirtWhite
+
+- type: startingGear
+  id: ShirtWhite
+  equipment:
+    jumpsuit: ClothingShirtTShirtWhite

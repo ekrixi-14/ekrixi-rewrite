@@ -6,7 +6,7 @@
 - type: startingGear
   id: CaptainJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCaptain
+    jumpsuit: ClothingShirtTShirtCommand
 
 - type: loadout
   id: CaptainJumpskirt
@@ -63,7 +63,7 @@
   id: CaptainCloak
   equipment:
     neck: ClothingNeckCloakCap
-  
+
 - type: loadout
   id: CaptainCloakFormal
   equipment: CaptainCloakFormal
