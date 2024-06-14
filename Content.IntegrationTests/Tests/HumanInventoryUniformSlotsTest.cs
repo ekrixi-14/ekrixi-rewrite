@@ -24,7 +24,7 @@ namespace Content.IntegrationTests.Tests
   id: UniformDummy
   components:
   - type: Clothing
-    slots: [lowerclothing]
+    slots: [lowerClothing]
   - type: Item
     size: Tiny
 
@@ -83,7 +83,7 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.Multiple(() =>
                 {
-                    Assert.That(invSystem.CanEquip(human, uniform, "lowerclothing", out _));
+                    Assert.That(invSystem.CanEquip(human, uniform, "lowerClothing", out _));
 
                     // Can't equip any of these since no uniform!
                     Assert.That(invSystem.CanEquip(human, idCard, "id", out _), Is.False);
