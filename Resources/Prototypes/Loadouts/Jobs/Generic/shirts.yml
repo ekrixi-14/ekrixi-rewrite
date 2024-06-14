@@ -15,3 +15,21 @@
   id: ShirtWhite
   equipment:
     jumpsuit: ClothingShirtTShirtWhite
+
+- type: loadout
+  id: ShirtBlack
+  equipment: ShirtBlack
+
+- type: startingGear
+  id: ShirtBlack
+  equipment:
+    jumpsuit: ClothingShirtTShirtBlack
+
+- type: loadout
+  id: ShirtRipped
+  equipment: ShirtRipped
+
+- type: startingGear
+  id: ShirtRipped
+  equipment:
+    jumpsuit: ClothingShirtTShirtRipped

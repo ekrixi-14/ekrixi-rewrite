@@ -91,16 +91,23 @@
   - TrenchNormal
   - TrenchLight
 
-# Civilian
 - type: loadoutGroup
-  id: PassengerJumpsuit
+  id: CommonShirt
   name: loadout-group-passenger-jumpsuit
   loadouts:
-  - GreyJumpsuit
-  - GreyJumpskirt
-  - AncientJumpsuit
-  - RainbowJumpsuit
+  - ShirtRipped
+  - ShirtWhite
+  - ShirtBlack
 
+- type: loadoutGroup
+  id: MercShirt
+  name: loadout-group-passenger-jumpsuit
+  loadouts:
+  - ShirtBlack
+  - ShirtWhite
+  - ShirtRipped
+
+# Civilian
 - type: loadoutGroup
   id: PassengerFace
   name: loadout-group-passenger-mask
@@ -200,30 +207,42 @@
   - SecurityHat
 
 - type: loadoutGroup
-  id: SecurityJumpsuit
-  name: loadout-group-security-jumpsuit
+  id: MercBelt
+  minLimit: 0
+  name: loadout-group-merc-belt
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
+  - MercenaryWebbing
+  - RegularWebbing
+  - Bandolier
 
 - type: loadoutGroup
-  id: SecurityBackpack
-  name: loadout-group-security-backpack
+  id: MercGloves
+  minLimit: 0
+  name: loadout-group-merc-gloves
   loadouts:
-  - SecurityBackpack
-  - SecuritySatchel
-  - SecurityDuffel
+  - MercenaryGloves
+  - BlackGloves
 
 - type: loadoutGroup
-  id: SecurityBelt
-  name: loadout-group-security-belt
+  id: MercHead
+  minLimit: 0
+  name: loadout-group-merc-hat
   loadouts:
-  - SecurityBelt
-  - SecurityWebbing
+  - BlackCap
+
+- type: loadoutGroup
+  id: MercMask
+  minLimit: 0
+  name: loadout-group-merc-mask
+  loadouts:
+  - MercBandana
+
+- type: loadoutGroup
+  id: MercGun
+  name: loadout-group-merc-mask
+  loadouts:
+  - Kammerer
+  - Mosin
 
 - type: loadoutGroup
   id: SecurityOuterClothing
@@ -238,14 +257,11 @@
   name: loadout-group-security-shoes
   loadouts:
   - CombatBoots
+  - BlackShoes
+  - WinterBoots
+  - SalvageBoots
+  - JackBoots
   - SecurityWinterBoots
-
-- type: loadoutGroup
-  id: SecurityPDA
-  name: loadout-group-security-id
-  loadouts:
-  - SecurityPDA
-  - SeniorOfficerPDA
 
 # Medical
 - type: loadoutGroup

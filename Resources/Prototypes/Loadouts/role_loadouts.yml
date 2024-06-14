@@ -21,6 +21,22 @@
   - GenericFace
   - Trinkets
 
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups:
+  - SecurityHead
+  - SecurityOuterClothing
+  - MercShirt
+  - MercBelt
+  - MercGloves
+  - MercHead
+  - MercMask
+  - MercGun
+  - CommonBackpack
+  - CommonPants
+  - GenericShoes
+  - Trinkets
+
 # Civilian
 - type: roleLoadout
   id: JobPassenger
@@ -45,18 +61,6 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
-  - Trinkets
-
-- type: roleLoadout
-  id: JobSecurityOfficer
-  groups:
-  - SecurityHead
-  - SecurityJumpsuit
-  - SecurityBackpack
-  - SecurityOuterClothing
-  - SecurityShoes
-  - SecurityPDA
-  - SecurityBelt
   - Trinkets
 
 - type: roleLoadout
