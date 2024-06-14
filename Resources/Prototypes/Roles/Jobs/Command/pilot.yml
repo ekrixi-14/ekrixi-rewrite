@@ -20,7 +20,7 @@
       - type: CommandStaff
 
 - type: startingGear
-  id: CaptainGear
+  id: PilotGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses
     id: CaptainPDA
