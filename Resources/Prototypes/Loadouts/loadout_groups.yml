@@ -263,8 +263,6 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
-  - ChiefMedicalOfficerBeret
-  - CMOMedicalHeadMirror
 
 - type: loadoutGroup
   id: MedicalDoctorShirt
@@ -292,8 +290,6 @@
   - GeneLabCoat
   - RoboLabCoat
   - SeniorPhysicianLabCoat
-  - ChiefMedicalOfficerLabCoat
-  - ChiefMedicalOfficerWintercoat
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -307,7 +303,6 @@
   id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
   loadouts:
-  - WhiteShoes
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -322,7 +317,6 @@
   name: loadout-group-medical-gloves
   minLimit: 0
   loadouts:
-  - LatexGloves
   - NitrileGloves
 
 - type: loadoutGroup
@@ -332,9 +326,3 @@
   loadouts:
   - SterileMask
 
-- type: loadoutGroup
-  id: ParamedicShoes
-  name: loadout-group-paramedic-shoes
-  loadouts:
-  - BlueShoes
-  - MedicalWinterBoots

@@ -7,7 +7,6 @@
   - CommonPants
   - CommonBackpack
   - GenericShoes
-  - GenericFace
   - Trinkets
 
 - type: roleLoadout
@@ -18,7 +17,6 @@
   - CommandOuterClothing
   - CommonBackpack
   - GenericShoes
-  - GenericFace
   - Trinkets
 
 - type: roleLoadout
@@ -47,7 +45,6 @@
   - PassengerOuterClothing
   - CommonBackpack
   - GenericShoes
-  - GenericFace
   - Trinkets
 
 # Engineering
@@ -74,5 +71,4 @@
   - MedicalDoctorPDA
   - CommonBackpack
   - GenericShoes
-  - GenericFace
   - Trinkets

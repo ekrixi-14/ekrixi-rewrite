@@ -28,19 +28,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
 
-# Rainbow
-- type: loadout
-  id: RainbowJumpsuit
-  equipment: RainbowJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
-
-- type: startingGear
-  id: RainbowJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformColorRainbow
-
 # Back
 - type: loadout
   id: CommonBackpack
