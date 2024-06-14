@@ -15,3 +15,12 @@
   id: JeansRipped
   equipment:
     lowerClothing: ClothingPantsRippedJeans
+
+- type: loadout
+  id: PantsWhite
+  equipment: PantsWhite
+
+- type: startingGear
+  id: PantsWhite
+  equipment:
+    lowerClothing: ClothingPantsWhite

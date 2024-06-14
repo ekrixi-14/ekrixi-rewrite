@@ -67,7 +67,8 @@
   groups:
   - MedicalDoctorHead
   - MedicalMask
-  - MedicalDoctorJumpsuit
+  - MedicalDoctorShirt
+  - MedicalDoctorPants
   - MedicalGloves
   - MedicalDoctorOuterClothing
   - MedicalDoctorPDA

@@ -305,24 +305,30 @@
   - NurseHat
 
 - type: loadoutGroup
-  id: MedicalDoctorJumpsuit
-  name: loadout-group-medical-doctor-jumpsuit
+  id: MedicalDoctorShirt
+  name: loadout-group-medical-doctor-shirt
   loadouts:
-  - MedicalDoctorJumpsuit
-  - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
   - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
+  - ShirtWhite
+
+- type: loadoutGroup
+  id: MedicalDoctorPants
+  name: loadout-group-medical-doctor-pants
+  loadouts:
+  - MedicalBlueScrubsPants
+  - PantsWhite
+  - JeansRipped
+  - JeansNormal
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
   name: loadout-group-medical-doctor-outerclothing
   minLimit: 0
   loadouts:
-  - RegularLabCoat
   - MedicalDoctorWintercoat
+  - RegularLabCoat
+  - GeneLabCoat
+  - RoboLabCoat
   - SeniorPhysicianLabCoat
 
 - type: loadoutGroup

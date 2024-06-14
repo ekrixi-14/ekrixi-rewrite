@@ -53,8 +53,9 @@ loadout-group-chief-medical-officer-shoes = Chief Medical Officer shoes
 loadout-group-chief-medical-officer-neck = Chief Medical Officer neck
 
 loadout-group-medical-doctor-head = Medical Doctor head
-loadout-group-medical-doctor-jumpsuit = Medical Doctor jumpsuit
-loadout-group-medical-doctor-outerclothing = Medical Doctor outer clothing
+loadout-group-medical-doctor-shirt = Medical Doctor shirt
+loadout-group-medical-doctor-pants = Medical Doctor pants
+loadout-group-medical-doctor-outerclothing = Medical Doctor coat
 loadout-group-medical-doctor-backpack = Medical Doctor backpack
 loadout-group-medical-doctor-shoes = Medical Doctor shoes
 loadout-group-medical-doctor-id = Medical Doctor ID
