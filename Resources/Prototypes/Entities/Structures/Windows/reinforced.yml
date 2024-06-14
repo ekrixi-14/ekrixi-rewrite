@@ -5,9 +5,11 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
@@ -44,6 +46,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls
     base: rwindow
   - type: Construction
     graph: Window
@@ -106,7 +109,7 @@
   - type: RCDDeconstructable
     cost: 4
     delay: 4
-    fx: EffectRCDDeconstruct4  
+    fx: EffectRCDDeconstruct4
   - type: Destructible
     thresholds:
     - trigger:
@@ -150,7 +153,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_window_diagonal.rsi

@@ -20,9 +20,11 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
+    sprite: _FTL/Structures/Windows/window.rsi
+    color: "#71abcc"
   - type: Icon
-    sprite: Structures/Windows/window.rsi
+    sprite: _FTL/Structures/Windows/window.rsi
+    color: "#71abcc"
     state: full
   - type: Physics
     bodyType: Static
@@ -72,7 +74,7 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: windows
+    key: walls
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -92,7 +94,7 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-  
+
 - type: entity
   id: WindowRCDResistant
   parent: Window
@@ -197,7 +199,7 @@
     price: 10
 
 - type: entity
-  id: WindowDirectionalRCDResistant  
+  id: WindowDirectionalRCDResistant
   parent: WindowDirectional
   abstract: true
   components:

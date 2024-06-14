@@ -5,9 +5,12 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_plasma_window.rsi
+    color: "#C531C9"
   - type: Icon
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_plasma_window.rsi
+    state: full
+    color: "#C531C9"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -42,6 +45,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls
     base: rpwindow
   - type: Construction
     graph: Window
@@ -125,7 +129,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_plasma_diagonal.rsi
