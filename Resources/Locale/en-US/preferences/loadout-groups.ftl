@@ -3,6 +3,8 @@ loadout-group-trinkets = Trinkets
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-shoes = Shoes
+loadout-group-pants = Pants
+loadout-group-passenger-jumpsuit = Shirts
 
 # Command
 loadout-group-captain-head = Captain head
@@ -17,7 +19,6 @@ loadout-group-command-outerclothing = Command outer clothing
 loadout-group-pilot-shirt = Pilot shirt
 
 # Civilian
-loadout-group-passenger-jumpsuit = Common shirts
 loadout-group-passenger-mask = Passenger mask
 loadout-group-passenger-gloves = Passenger gloves
 loadout-group-passenger-outerclothing = Passenger outer clothing
@@ -40,6 +41,7 @@ loadout-group-merc-weapon = Weapon of choice
 loadout-Kammerer = Kammerer + shells
 loadout-Mosin = Mosin + box
 
+loadout-group-merc-shoes = Mercenary shoes
 loadout-group-security-outerclothing = Mercenary outer clothing
 
 # Medical

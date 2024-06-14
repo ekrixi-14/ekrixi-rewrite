@@ -26,15 +26,14 @@
   groups:
   - SecurityHead
   - SecurityOuterClothing
-  - MercShirt
   - MercBelt
   - MercGloves
   - MercMask
   - MercGun
+  - MercShoes
   - CommonBackpack
   - CommonPants
   - CommonShirt
-  - GenericShoes
   - Trinkets
 
 # Civilian

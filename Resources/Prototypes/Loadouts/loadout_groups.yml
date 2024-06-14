@@ -39,7 +39,7 @@
 
 - type: loadoutGroup
   id: CommonPants
-  name: loadout-group-captain-pants
+  name: loadout-group-pants
   loadouts:
   - JeansRipped
   - JeansNormal
@@ -240,8 +240,8 @@
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
-  id: SecurityShoes
-  name: loadout-group-security-shoes
+  id: MercShoes
+  name: loadout-group-merc-shoes
   loadouts:
   - CombatBoots
   - BlackShoes
@@ -251,46 +251,6 @@
   - SecurityWinterBoots
 
 # Medical
-- type: loadoutGroup
-  id: ChiefMedicalOfficerHead
-  name: loadout-group-chief-medical-officer-head
-  minLimit: 0
-  loadouts:
-  - ChiefMedicalOfficerBeret
-  - CMOMedicalHeadMirror
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerJumpsuit
-  name: loadout-group-chief-medical-officer-jumpsuit
-  loadouts:
-  - ChiefMedicalOfficerJumpsuit
-  - ChiefMedicalOfficerJumpskirt
-  - ChiefMedicalOfficerTurtleneckJumpsuit
-  - ChiefMedicalOfficerTurtleneckJumpskirt
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerOuterClothing
-  name: loadout-group-chief-medical-officer-outerclothing
-  minLimit: 0
-  loadouts:
-  - ChiefMedicalOfficerLabCoat
-  - ChiefMedicalOfficerWintercoat
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerNeck
-  name: loadout-group-chief-medical-officer-neck
-  minLimit: 0
-  loadouts:
-  - ChiefMedicalOfficerCloak
-  - ChiefMedicalOfficerMantle
-
-- type: loadoutGroup
-  id: ChiefMedicalOfficerShoes
-  name: loadout-group-chief-medical-officer-shoes
-  loadouts:
-  - BrownShoes
-  - MedicalWinterBoots
-
 - type: loadoutGroup
   id: MedicalDoctorHead
   name: loadout-group-medical-doctor-head
@@ -303,6 +263,8 @@
   - GreenSurgeryCap
   - PurpleSurgeryCap
   - NurseHat
+  - ChiefMedicalOfficerBeret
+  - CMOMedicalHeadMirror
 
 - type: loadoutGroup
   id: MedicalDoctorShirt
@@ -330,6 +292,8 @@
   - GeneLabCoat
   - RoboLabCoat
   - SeniorPhysicianLabCoat
+  - ChiefMedicalOfficerLabCoat
+  - ChiefMedicalOfficerWintercoat
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -369,85 +333,8 @@
   - SterileMask
 
 - type: loadoutGroup
-  id: MedicalInternJumpsuit
-  name: loadout-group-medical-intern-jumpsuit
-  loadouts:
-  - WhiteJumpsuit
-  - WhiteJumpskirt
-
-- type: loadoutGroup
-  id: ChemistJumpsuit
-  name: loadout-group-chemist-jumpsuit
-  loadouts:
-  - ChemistJumpsuit
-  - ChemistJumpskirt
-
-- type: loadoutGroup
-  id: ChemistOuterClothing
-  name: loadout-group-chemist-outerclothing
-  minLimit: 0
-  loadouts:
-  - RegularLabCoat
-  - ChemistLabCoat
-  - ChemistWintercoat
-
-- type: loadoutGroup
-  id: ChemistBackpack
-  name: loadout-group-chemist-backpack
-  loadouts:
-  - ChemistBackpack
-  - ChemistSatchel
-  - ChemistDuffel
-
-- type: loadoutGroup
-  id: ParamedicHead
-  name: loadout-group-paramedic-head
-  minLimit: 0
-  loadouts:
-  - ParamedicHead
-
-- type: loadoutGroup
-  id: ParamedicJumpsuit
-  name: loadout-group-paramedic-jumpsuit
-  loadouts:
-  - ParamedicJumpsuit
-  - ParamedicJumpskirt
-
-- type: loadoutGroup
-  id: ParamedicOuterClothing
-  name: loadout-group-paramedic-outerclothing
-  minLimit: 0
-  loadouts:
-  - ParamedicWindbreaker
-  - ParamedicWintercoat
-
-- type: loadoutGroup
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
   - MedicalWinterBoots
-
-# Wildcards
-- type: loadoutGroup
-  id: ReporterJumpsuit
-  name: loadout-group-reporter-jumpsuit
-  loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
-
-- type: loadoutGroup
-  id: BoxerJumpsuit
-  name: loadout-group-boxer-jumpsuit
-  loadouts:
-  - BoxerShorts
-  - BoxerShortsWithTop
-
-- type: loadoutGroup
-  id: BoxerGloves
-  name: loadout-group-boxer-gloves
-  loadouts:
-  - RedBoxingGloves
-  - BlueBoxingGloves
-  - GreenBoxingGloves
-  - YellowBoxingGloves
