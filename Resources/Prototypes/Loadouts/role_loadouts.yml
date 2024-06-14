@@ -40,9 +40,9 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - PassengerJumpsuit
+  - CommonPants
+  - CommonShirt
   - PassengerFace
-  - PassengerPants
   - PassengerGloves
   - PassengerOuterClothing
   - CommonBackpack

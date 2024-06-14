@@ -41,8 +41,8 @@
   id: CommonPants
   name: loadout-group-captain-pants
   loadouts:
-  - JeansNormal
   - JeansRipped
+  - JeansNormal
 
 - type: loadoutGroup
   id: CommonFace
@@ -99,14 +99,6 @@
   - ShirtWhite
   - ShirtBlack
 
-- type: loadoutGroup
-  id: MercShirt
-  name: loadout-group-passenger-jumpsuit
-  loadouts:
-  - ShirtBlack
-  - ShirtWhite
-  - ShirtRipped
-
 # Civilian
 - type: loadoutGroup
   id: PassengerFace
@@ -136,6 +128,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - StationEngineerOuterVest
 
 - type: loadoutGroup
   id: GenericShoes
