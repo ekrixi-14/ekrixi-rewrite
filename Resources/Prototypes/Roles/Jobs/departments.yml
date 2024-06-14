@@ -20,6 +20,7 @@
   color: "#334E6D"
   roles:
   - Captain
+  - Pilot
   primary: false
   weight: 100
 

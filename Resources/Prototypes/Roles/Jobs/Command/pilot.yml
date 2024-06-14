@@ -1,8 +1,8 @@
 - type: job
-  id: Captain
-  name: job-name-captain
-  description: job-description-captain
-  playTimeTracker: JobCaptain
+  id: Pilot
+  name: job-name-pilot
+  description: job-description-pilot
+  playTimeTracker: JobPilot
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
