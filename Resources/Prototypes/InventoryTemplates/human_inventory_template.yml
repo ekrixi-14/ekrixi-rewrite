@@ -12,9 +12,9 @@
       slotTexture: uniform
       slotFlags: INNERCLOTHING
       stripTime: 6
-      uiWindowPos: 0,1
+      uiWindowPos: 0,2
       strippingWindowPos: 0,2
-      displayName: Jumpsuit
+      displayName: Shirt
     - name: outerClothing
       slotTexture: suit
       slotFlags: OUTERCLOTHING
@@ -28,10 +28,17 @@
       uiWindowPos: 2,1
       strippingWindowPos: 2,2
       displayName: Gloves
+    - name: lowerClothing
+      slotTexture: uniform
+      slotFlags: LOWERCLOTHING
+      stripTime: 7 # spacemen have belts on
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,3
+      displayName: Pants
     - name: neck
       slotTexture: neck
       slotFlags: NECK
-      uiWindowPos: 0,2
+      uiWindowPos: 2,2
       strippingWindowPos: 0,1
       displayName: Neck
     - name: mask
@@ -51,7 +58,8 @@
       slotTexture: ears
       slotFlags: EARS
       stripTime: 3
-      uiWindowPos: 2,2
+      uiWindowPos: 2,3
+#      uiWindowPos: 0,3 # Not sure whether we want multiple ears. It would be cool to wear a pen in your ear or a screwdriver, though.
       strippingWindowPos: 2,0
       displayName: Ears
     - name: head
@@ -68,7 +76,7 @@
       stripTime: 3
       uiWindowPos: 0,3
       strippingWindowPos: 0,4
-      dependsOn: jumpsuit
+      dependsOn: lowerClothing
       displayName: Pocket 1
       stripHidden: true
     - name: pocket2
@@ -79,7 +87,7 @@
       stripTime: 3
       uiWindowPos: 2,3
       strippingWindowPos: 1,4
-      dependsOn: jumpsuit
+      dependsOn: lowerClothing
       displayName: Pocket 2
       stripHidden: true
     - name: suitstorage
@@ -101,7 +109,7 @@
       stripTime: 6
       uiWindowPos: 2,1
       strippingWindowPos: 2,4
-      dependsOn: jumpsuit
+      dependsOn: lowerClothing
       displayName: ID
     - name: belt
       slotTexture: belt

@@ -83,7 +83,7 @@
         layer:
           - MobLayer
   - type: Inventory
-    templateId: diona
+    templateId: human
   - type: Speech
     speechVerb: Plant
   - type: Vocal
@@ -108,6 +108,6 @@
   noSpawn: true
   components:
   - type: Inventory
-    templateId: diona
+    templateId: human
   - type: HumanoidAppearance
     species: Diona
