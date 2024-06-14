@@ -85,7 +85,7 @@
 
 - type: loadoutGroup
   id: CommandOuterClothing
-  name: loadout-group-captain-outerclothing
+  name: loadout-group-command-outerclothing
   loadouts:
   - TrenchDark
   - TrenchNormal
@@ -139,7 +139,7 @@
 
 - type: loadoutGroup
   id: GenericShoes
-  name: loadout-group-passenger-shoes
+  name: loadout-group-shoes
   loadouts:
   - BlackShoes
   - WinterBoots
@@ -202,6 +202,7 @@
   name: loadout-group-security-head
   minLimit: 0
   loadouts:
+  - BlackCap
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
@@ -224,13 +225,6 @@
   - BlackGloves
 
 - type: loadoutGroup
-  id: MercHead
-  minLimit: 0
-  name: loadout-group-merc-hat
-  loadouts:
-  - BlackCap
-
-- type: loadoutGroup
   id: MercMask
   minLimit: 0
   name: loadout-group-merc-mask
@@ -239,7 +233,7 @@
 
 - type: loadoutGroup
   id: MercGun
-  name: loadout-group-merc-mask
+  name: loadout-group-merc-weapon
   loadouts:
   - Kammerer
   - Mosin
