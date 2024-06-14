@@ -1,0 +1,142 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtCaptain
+  name: captain's shirt
+  description: It's a blue shirt with that yells out "Captain".
+  components:
+    - type: Sprite
+      sprite: _Ekrixi/Clothing/InnerClothing/captain.rsi
+    - type: Clothing
+      sprite: _Ekrixi/Clothing/InnerClothing/captain.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtCargo
+  name: cargo tech shirt
+  description: A sturdy shirt that oddly resonates well with cargonians.
+  components:
+    - type: Sprite
+      sprite: _Ekrixi/Clothing/InnerClothing/cargotech.rsi
+    - type: Clothing
+      sprite: _Ekrixi/Clothing/InnerClothing/cargotech.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtScrubsBlue
+  name: blue scrubs (upper)
+  description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
+  components:
+    - type: Sprite
+      sprite: _Ekrixi/Clothing/InnerClothing/blue-scrubs.rsi
+    - type: Clothing
+      sprite: _Ekrixi/Clothing/InnerClothing/blue-scrubs.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtSec
+  name: security shirt
+  description: A shirt made of strong material, providing robust protection.
+  components:
+    - type: Sprite
+      sprite: _Ekrixi/Clothing/InnerClothing/security.rsi
+    - type: Clothing
+      sprite: _Ekrixi/Clothing/InnerClothing/security.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtEngineeringHazard
+  name: hazard shirt
+  description: Woven in a grungy, warm orange. Lets others around you know that you really mean business when it comes to work.
+  components:
+    - type: Sprite
+      sprite: _Ekrixi/Clothing/InnerClothing/engineering_hazard.rsi
+    - type: Clothing
+      sprite: _Ekrixi/Clothing/InnerClothing/engineering_hazard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtPilot
+  name: pilot's suit
+  description: A clean, nearly skintight top with bright colors and metallic highlights.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/pilot.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/pilot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtWhite
+  name: white t-shirt
+  description: A plain white t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/t-shirt.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/t-shirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtRed
+  name: red t-shirt
+  description: A plain red t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/red-tshirt.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/red-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtBlue
+  name: blue t-shirt
+  description: A plain blue t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/blue-tshirt.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/blue-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtGray
+  name: gray t-shirt
+  description: A plain gray t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/gray-tshirt.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/gray-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtRipped
+  name: ripped t-shirt
+  description: A ripped white t-shirt. You should really replace this.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/ripped-tshirt.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/ripped-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtCommand
+  name: command t-shirt
+  description: A dark blue t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/Department/command.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/Department/command.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtBlack
+  name: black t-shirt
+  description: A black t-shirt.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/InnerClothing/black.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/InnerClothing/black.rsi

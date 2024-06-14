@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanie
+  name: fleece beanie
+  description: Tactically keeps your head warm.
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Clothing/Head/Hats/beanie.rsi
+  - type: Clothing
+    sprite: _Ekrixi/Clothing/Head/Hats/beanie.rsi
