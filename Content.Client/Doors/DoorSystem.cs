@@ -1,3 +1,4 @@
+using Content.Client._Ekrixi.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Client.Animations;
@@ -71,6 +72,8 @@ public sealed class DoorSystem : SharedDoorSystem
     {
         if (args.Sprite == null)
             return;
+        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+            return; // let the bay airlock vis handle it
 
         if(!AppearanceSystem.TryGetData<DoorState>(uid, DoorVisuals.State, out var state, args.Component))
             state = DoorState.Closed;
