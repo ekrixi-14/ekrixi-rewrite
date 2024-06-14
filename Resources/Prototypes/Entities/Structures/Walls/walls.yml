@@ -514,10 +514,10 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: _FTL/Structures/Walls/solid.rsi
+    sprite: _Ekrixi/Structures/Walls/solid.rsi
     color: "#4A4A4A"
   - type: Icon
-    sprite: _FTL/Structures/Walls/solid.rsi
+    sprite: _Ekrixi/Structures/Walls/solid.rsi
     color: "#4A4A4A"
     state: rgeneric
   - type: Construction
@@ -862,14 +862,14 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: _FTL/Structures/Walls/solid.rsi
+    sprite: _Ekrixi/Structures/Walls/solid.rsi
     color: "#4A4A4A"
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: _FTL/Structures/Walls/solid.rsi
+    sprite: _Ekrixi/Structures/Walls/solid.rsi
     color: "#4A4A4A"
   - type: RCDDeconstructable
     cost: 6
