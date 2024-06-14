@@ -28,35 +28,35 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
-  - ClothingNeckScarfStripedRed
-  - ClothingNeckScarfStripedBlue
-  - ClothingNeckScarfStripedGreen
-  - ClothingNeckScarfStripedBlack
-  - ClothingNeckScarfStripedBrown
-  - ClothingNeckScarfStripedLightBlue
-  - ClothingNeckScarfStripedOrange
-  - ClothingNeckScarfStripedPurple
+  - ScarfStripedRed
+  - ScarfStripedBlue
+  - ScarfStripedGreen
+  - ScarfStripedBlack
+  - ScarfStripedBrown
+  - ScarfStripedLightBlue
+  - ScarfStripedOrange
+  - ScarfStripedPurple
 
-# Command
 - type: loadoutGroup
-  id: CaptainHead
+  id: CommonPants
+  name: loadout-group-captain-pants
+  loadouts:
+  - JeansNormal
+  - JeansRipped
+
+- type: loadoutGroup
+  id: CommonFace
   name: loadout-group-captain-head
   minLimit: 0
   loadouts: []
 
+# Command
 - type: loadoutGroup
   id: CaptainJumpsuit
   name: loadout-group-captain-jumpsuit
   loadouts:
   - ShirtCommand
   - ShirtWhite
-
-- type: loadoutGroup
-  id: CaptainPants
-  name: loadout-group-captain-pants
-  loadouts:
-  - JeansNormal
-  - JeansRipped
 
 - type: loadoutGroup
   id: CaptainOuterClothing
