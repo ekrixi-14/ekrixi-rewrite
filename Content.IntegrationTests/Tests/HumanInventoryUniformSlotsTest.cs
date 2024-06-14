@@ -24,7 +24,7 @@ namespace Content.IntegrationTests.Tests
   id: UniformDummy
   components:
   - type: Clothing
-    slots: [innerclothing]
+    slots: [lowerclothing]
   - type: Item
     size: Tiny
 
