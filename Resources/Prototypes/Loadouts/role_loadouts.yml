@@ -2,13 +2,12 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
-  - CaptainHead
-  - CaptainNeck
   - CaptainJumpsuit
-  - CaptainPants
   - CaptainOuterClothing
+  - CommonPants
   - CommonBackpack
   - GenericShoes
+  - GenericFace
   - Trinkets
 
 - type: roleLoadout
@@ -17,10 +16,11 @@
   - PilotHead
   - PilotNeck
   - PilotJumpsuit
-  - PilotPants
-  - CommonBackpack
   - PilotOuterClothing
+  - CommonBackpack
+  - CommonPants
   - GenericShoes
+  - GenericFace
   - Trinkets
 
 # Civilian
@@ -28,12 +28,13 @@
   id: JobPassenger
   groups:
   - PassengerJumpsuit
-  - CommonBackpack
   - PassengerFace
   - PassengerPants
   - PassengerGloves
   - PassengerOuterClothing
+  - CommonBackpack
   - GenericShoes
+  - GenericFace
   - Trinkets
 
 # Engineering
@@ -67,8 +68,9 @@
   - MedicalMask
   - MedicalDoctorJumpsuit
   - MedicalGloves
-  - CommonBackpack
   - MedicalDoctorOuterClothing
   - MedicalDoctorPDA
+  - CommonBackpack
   - GenericShoes
+  - GenericFace
   - Trinkets
