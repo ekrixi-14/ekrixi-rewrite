@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://github.com/tgstation/tgstation/tree/bce2c0f181a2dba71c681a6292992a7cda6c5a2c and edited by Just-a-Unity-Dev",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "coffee-maker"
+        }
+    ]
+}

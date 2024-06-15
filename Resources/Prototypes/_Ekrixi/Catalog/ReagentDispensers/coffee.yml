@@ -1,0 +1,4 @@
+- type: reagentDispenserInventory
+  id: CoffeeDispenserInventory
+  inventory:
+  - DrinkCoffeeBottleFull

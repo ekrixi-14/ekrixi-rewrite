@@ -1,0 +1,37 @@
+- type: entity
+  id: EkrixiCoffeeMaker
+  name: coffee maker
+  suffix: Filled
+  description: A coffee maker, a perfect gift for the overworked doctors.
+  parent: ReagentDispenserBase
+  components:
+  - type: Sprite
+    sprite: _Ekrixi/Structures/smalldispensers.rsi
+    drawdepth: SmallObjects
+    state: coffee-maker
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+      - Coffee
+    pack: CoffeeDispenserInventory
+  - type: Transform
+    noRot: false
+  - type: Machine
+    board: BoozeDispenserMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Bartender
+  - type: StealTarget
+    stealGroup: BoozeDispenser
+
+- type: entity
+  id: BoozeDispenserEmpty
+  suffix: Empty
+  parent: BoozeDispenser
+  components:
+  - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - DrinkBottle
+    pack: EmptyInventory
