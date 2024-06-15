@@ -1,0 +1,21 @@
+- type: entity
+  parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
+  id: DrinkCoffeeBottleFull
+  name: coffee bottle
+  description: Cured coffee in a bottle. Somehow.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Coffee
+          Quantity: 300
+  - type: Label
+    currentLabel: coffee
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/winebottle.rsi
+  - type: Sealable
+  - type: Tag
+    tags:
+    - DrinkBottle
+    - Coffee
