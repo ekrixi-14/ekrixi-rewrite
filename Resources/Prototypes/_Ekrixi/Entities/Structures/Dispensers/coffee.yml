@@ -19,7 +19,7 @@
     noRot: false
 
 - type: entity
-  id: EkrixiCoffeeMaker
+  id: EkrixiCoffeeMakerEmpty
   suffix: Empty
   parent: EkrixiCoffeeMaker
   components:
