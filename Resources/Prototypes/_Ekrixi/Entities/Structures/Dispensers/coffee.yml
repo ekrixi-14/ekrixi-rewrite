@@ -17,21 +17,15 @@
     pack: CoffeeDispenserInventory
   - type: Transform
     noRot: false
-  - type: Machine
-    board: BoozeDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
-  - type: StealTarget
-    stealGroup: BoozeDispenser
 
 - type: entity
-  id: BoozeDispenserEmpty
+  id: EkrixiCoffeeMaker
   suffix: Empty
-  parent: BoozeDispenser
+  parent: EkrixiCoffeeMaker
   components:
   - type: ReagentDispenser
     storageWhitelist:
       tags:
       - DrinkBottle
+      - Coffee
     pack: EmptyInventory
