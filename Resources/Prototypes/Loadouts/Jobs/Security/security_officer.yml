@@ -276,15 +276,6 @@
     shoes: ClothingShoesBootsCombatFilled
 
 - type: loadout
-  id: JackBoots
-  equipment: JackBoots
-
-- type: startingGear
-  id: JackBoots
-  equipment:
-    shoes: ClothingShoesBootsJackFilled
-
-- type: loadout
   id: SecurityWinterBoots
   equipment: SecurityWinterBoots
 
