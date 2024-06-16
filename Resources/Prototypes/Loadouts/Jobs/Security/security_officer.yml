@@ -282,4 +282,4 @@
 - type: startingGear
   id: SecurityWinterBoots
   equipment:
-    shoes: ClothingShoesBootsWinterSec
+    shoes: ClothingShoesBootsWinterSecFilled
