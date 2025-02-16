@@ -20,6 +20,7 @@ using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.EntitySystems;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -41,6 +42,9 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    // begin ekrixi edit
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    // end ekrixi edit
 
     public override void Initialize()
     {
@@ -229,6 +233,11 @@ public sealed class BloodstreamSystem : EntitySystem
         var totalFloat = total.Float();
         TryModifyBleedAmount(ent, totalFloat, ent);
 
+        // begin ekrixi edit
+        var puddle = EntityManager.Spawn("EkrixiSplatter");
+        _transformSystem.SetCoordinates(puddle, Transform(ent.Owner).Coordinates);
+        // end ekrixi edit
+
         /// <summary>
         ///     Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5
         ///     The crit chance is currently the bleed rate modifier divided by 25.
@@ -238,6 +247,7 @@ public sealed class BloodstreamSystem : EntitySystem
         if (totalFloat > 0 && _robustRandom.Prob(prob))
         {
             TryModifyBloodLevel(ent, (-total) / 5, ent);
+
             _audio.PlayPvs(ent.Comp.InstantBloodSound, ent);
         }
 
