@@ -1,0 +1,39 @@
+- type: entity
+  name: puddle
+  id: EkrixiSplatter
+  description: A splatter of liquid.
+  components:
+  - type: Clickable
+  - type: Transform
+  - type: SplatterOnInit
+    timeToFall: 0.35
+  - type: Sprite
+    sprite: _Ekrixi/Fluids/smear.rsi
+    layers:
+    - state: smear0
+      map: ["random"]
+    drawdepth: Puddles
+    color: "#DD222280"
+  - type: RandomSprite
+    available:
+    - random:
+        smear0: ""
+        smear1: ""
+        smear2: ""
+        smear3: ""
+        smear4: ""
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: Appearance
+  - type: IgnoresFingerprints

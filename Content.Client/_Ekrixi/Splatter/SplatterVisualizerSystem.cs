@@ -1,8 +1,8 @@
 using Content.Shared._Ekrixi.Splatter;
-using Content.Shared.Throwing;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Random;
 
 namespace Content.Client._Ekrixi.Splatter;
 
@@ -60,11 +60,10 @@ public sealed class SplatterVisualizerSystem : EntitySystem
         if (length <= TimeSpan.Zero)
             return null;
 
-        length += TimeSpan.FromSeconds(3f); // should not be hardcoded
+        // length += TimeSpan.FromSeconds(3f); // should not be hardcoded
         var scale = ent.Comp2.Scale;
         var lenFloat = (float) length.TotalSeconds;
 
-        // TODO use like actual easings here
         return new Animation
         {
             Length = length,
@@ -76,8 +75,20 @@ public sealed class SplatterVisualizerSystem : EntitySystem
                     Property = nameof(SpriteComponent.Scale),
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(scale * 1.4f, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(scale, lenFloat * 0.75f)
+                        new AnimationTrackProperty.KeyFrame(scale * 1.05f, 0.0f),
+                        new AnimationTrackProperty.KeyFrame(scale * 1.4f, lenFloat * 0.24f),
+                        new AnimationTrackProperty.KeyFrame(scale, lenFloat * 0.85f)
+                    },
+                    InterpolationMode = AnimationInterpolationMode.Cubic
+                },
+                new AnimationTrackComponentProperty
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Rotation),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(ent.Comp1.InitialRotation, 0.0f),
+                        new AnimationTrackProperty.KeyFrame(ent.Comp1.TargetRotation, lenFloat * 0.35f)
                     },
                     InterpolationMode = AnimationInterpolationMode.Linear
                 }

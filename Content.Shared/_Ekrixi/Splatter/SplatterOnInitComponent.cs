@@ -9,5 +9,6 @@ public sealed partial class SplatterOnInitComponent : Component
     /// <summary>
     /// How much time does it take for this to splat?
     /// </summary>
+    [DataField]
     public TimeSpan TimeToFall = TimeSpan.FromSeconds(1f);
 }

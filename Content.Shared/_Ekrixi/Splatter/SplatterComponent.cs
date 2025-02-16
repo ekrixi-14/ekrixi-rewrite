@@ -17,6 +17,24 @@ public sealed partial class SplatterComponent : Component
     public TimeSpan? StartFallTime;
 
     /// <summary>
+    ///     The rotation of this splatter.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public Angle InitialRotation;
+
+    /// <summary>
+    ///     The target rotation of this splatter.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public Angle TargetRotation;
+
+    /// <summary>
+    ///     The peak height of this splatter.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float PeakHeight = 1.3f;
+
+    /// <summary>
     ///     Compared to <see cref="IGameTiming.CurTime"/> to stop making this entity fall, if any.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
