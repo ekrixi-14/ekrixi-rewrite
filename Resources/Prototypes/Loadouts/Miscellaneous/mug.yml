@@ -1,9 +1,5 @@
 - type: loadout
   id: Mug
-  equipment: Mug
-
-- type: startingGear
-  id: Mug
   storage:
     back:
     - DrinkMugBlack

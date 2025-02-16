@@ -84,8 +84,6 @@
           - MobMask
         layer:
           - MobLayer
-  - type: Inventory
-    templateId: human
   - type: Speech
     speechVerb: Plant
     allowedEmotes: ['Chirp']
@@ -105,7 +103,7 @@
     allowedStates:
     - Dead
   - type: Inventory
-    templateId: diona
+    templateId: human
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

@@ -1,17 +1,9 @@
 - type: loadout
   id: JackBoots
-  equipment: JackBoots
-
-- type: startingGear
-  id: JackBoots
   equipment:
     shoes: ClothingShoesBootsJack
 
 - type: loadout
-  id: SalvageBoots
-  equipment: SalvageBoots
-
-- type: startingGear
   id: SalvageBoots
   equipment:
     shoes: ClothingShoesBootsSalvage
