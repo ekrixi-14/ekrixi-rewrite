@@ -5,8 +5,7 @@
   components:
   - type: Clickable
   - type: Transform
-  - type: SplatterOnInit
-    timeToFall: 0.35
+  - type: Splatter
   - type: Sprite
     sprite: _Ekrixi/Fluids/smear.rsi
     layers:

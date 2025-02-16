@@ -14,6 +14,12 @@ public sealed partial class SplatterComponent : Component
     ///     The <see cref="IGameTiming.CurTime"/> timestamp at which this entity started falling.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public TimeSpan? TimeToFall = TimeSpan.FromSeconds(0.35f);
+
+    /// <summary>
+    ///     The <see cref="IGameTiming.CurTime"/> timestamp at which this entity started falling.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public TimeSpan? StartFallTime;
 
     /// <summary>

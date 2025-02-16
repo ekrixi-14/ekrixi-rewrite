@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Body.Components;
+using Content.Shared._Ekrixi.Splatter;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -9,6 +10,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Ekrixi.Splatter;
 
@@ -21,6 +23,7 @@ public sealed class SplatterSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -46,6 +49,17 @@ public sealed class SplatterSystem : EntitySystem
     public void SplatAt(EntityCoordinates coordinates, Vector2 direction)
     {
         var puddle = EntityManager.Spawn("EkrixiSplatter");
+        var comp = EnsureComp<SplatterComponent>(puddle);
+
+        comp.StartFallTime = _timing.CurTime;
+        comp.StopFallTime = _timing.CurTime + comp.TimeToFall; // shouldn't be hardcoded but blehhh
+
+        comp.InitialRotation = _random.NextAngle();
+        comp.TargetRotation = comp.InitialRotation + _random.NextAngle() / 8;
+        comp.PeakHeight = _random.NextFloat(1.22f, 1.47f);
+
+        Dirty(puddle, comp);
+
         _transformSystem.SetCoordinates(puddle, coordinates);
 
         var physics = EnsureComp<PhysicsComponent>(puddle);
