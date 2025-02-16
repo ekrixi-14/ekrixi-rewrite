@@ -76,7 +76,7 @@ public sealed class SplatterVisualizerSystem : EntitySystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(scale * 1.05f, 0.0f),
-                        new AnimationTrackProperty.KeyFrame(scale * 1.4f, lenFloat * 0.24f),
+                        // new AnimationTrackProperty.KeyFrame(scale * 1.4f, lenFloat * 0.24f),
                         new AnimationTrackProperty.KeyFrame(scale, lenFloat * 0.85f)
                     },
                     InterpolationMode = AnimationInterpolationMode.Cubic
