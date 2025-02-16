@@ -1,4 +1,5 @@
 using Content.Shared.Doors.Components;
+using Content.Shared.Power;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
@@ -126,7 +127,7 @@ public sealed class BayAirlockVisualsSystem : VisualizerSystem<BayAirlockVisuals
         }
 
 
-        _appearanceSystem.TryGetData(uid, DoorVisuals.Powered, out bool powered);
+        _appearanceSystem.TryGetData(uid, PowerDeviceVisuals.Powered, out bool powered);
 
         var welded = false;
         var boltedVisible = _appearanceSystem.TryGetData(uid, DoorVisuals.BoltLights, out bool lights) && lights && powered;

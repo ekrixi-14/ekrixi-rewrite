@@ -66,7 +66,7 @@ namespace Content.Shared.Damage
         public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
 
         [DataField]
-        public Dictionary<MobState, ProtoId<StatusIconPrototype>> HealthIcons = new()
+        public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()
         {
             { MobState.Alive, "HealthIconFine" },
             { MobState.Critical, "HealthIconCritical" },
@@ -74,7 +74,7 @@ namespace Content.Shared.Damage
         };
 
         [DataField]
-        public ProtoId<StatusIconPrototype> RottingIcon = "HealthIconRotting";
+        public ProtoId<HealthIconPrototype> RottingIcon = "HealthIconRotting";
 
         [DataField]
         public FixedPoint2? HealthBarThreshold;
@@ -84,15 +84,18 @@ namespace Content.Shared.Damage
     public sealed class DamageableComponentState : ComponentState
     {
         public readonly Dictionary<string, FixedPoint2> DamageDict;
+        public readonly string? DamageContainerId;
         public readonly string? ModifierSetId;
         public readonly FixedPoint2? HealthBarThreshold;
 
         public DamageableComponentState(
             Dictionary<string, FixedPoint2> damageDict,
+            string? damageContainerId,
             string? modifierSetId,
             FixedPoint2? healthBarThreshold)
         {
             DamageDict = damageDict;
+            DamageContainerId = damageContainerId;
             ModifierSetId = modifierSetId;
             HealthBarThreshold = healthBarThreshold;
         }
