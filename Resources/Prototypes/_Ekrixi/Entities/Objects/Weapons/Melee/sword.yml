@@ -1,6 +1,7 @@
 - type: entity
   id: EkrixiMachete
   parent: [ Machete ]
+  suffix: Ekrixi
   description: A large, vicious looking blade. Can be holstered on the belt.
   components:
   - type: Clothing
