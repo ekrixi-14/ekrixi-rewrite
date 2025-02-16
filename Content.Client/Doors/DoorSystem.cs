@@ -81,7 +81,7 @@ public sealed class DoorSystem : SharedDoorSystem
     {
         if (args.Sprite == null)
             return;
-        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+        if (TryComp<BayAirlockVisualsComponent>(entity, out _))
             return; // let the bay airlock vis handle it
 
         if (!AppearanceSystem.TryGetData<DoorState>(entity, DoorVisuals.State, out var state, args.Component))
