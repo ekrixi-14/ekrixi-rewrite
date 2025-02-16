@@ -6,7 +6,6 @@
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
-  requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -29,6 +28,5 @@
     ears: ClothingHeadsetAltCommand
   storage:
     back:
-    - BoxSurvival
     - Flash
     # - StationCharter
