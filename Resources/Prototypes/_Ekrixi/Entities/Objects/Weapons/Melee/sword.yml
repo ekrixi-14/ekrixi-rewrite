@@ -1,0 +1,15 @@
+- type: entity
+  id: EkrixiMachete
+  parent: [ Machete ]
+  description: A large, vicious looking blade. Can be holstered on the belt.
+  components:
+  - type: Clothing
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 23.5
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg

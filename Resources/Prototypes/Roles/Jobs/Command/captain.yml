@@ -21,7 +21,7 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    belt: Machete
+    belt: EkrixiMachete
     pocket1: WeaponRevolverDeckard
     eyes: ClothingEyesGlassesSunglasses
     id: CaptainPDA
