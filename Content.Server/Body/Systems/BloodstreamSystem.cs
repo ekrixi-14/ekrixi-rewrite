@@ -1,3 +1,4 @@
+using Content.Server._Ekrixi.Splatter;
 using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
@@ -42,6 +43,9 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
+    // begin ekrixi edit
+    [Dependency] private readonly SplatterSystem _splatterSystem = default!;
+    // end ekrixi edit
 
     public override void Initialize()
     {
@@ -229,6 +233,12 @@ public sealed class BloodstreamSystem : EntitySystem
         var total = bloodloss.GetTotal();
         var totalFloat = total.Float();
         TryModifyBleedAmount(ent, totalFloat, ent);
+        Logger.Debug(totalFloat.ToString());
+
+        // begin ekrixi edit
+        if (totalFloat > 1f)
+            _splatterSystem.SplatAt(ent, _splatterSystem.RandomDirection() * totalFloat);
+        // end ekrixi edit
 
         /// <summary>
         ///     Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5

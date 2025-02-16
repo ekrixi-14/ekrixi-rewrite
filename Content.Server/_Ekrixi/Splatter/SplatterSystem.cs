@@ -1,8 +1,10 @@
+using System.Numerics;
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
@@ -26,6 +28,30 @@ public sealed class SplatterSystem : EntitySystem
         SubscribeLocalEvent<SplatterableComponent, DamageChangedEvent>(OnDamage);
     }
 
+    public Vector2 RandomDirection()
+    {
+        return _random.NextVector2().Normalized();
+    }
+
+    public void SplatAt(EntityUid uid)
+    {
+        SplatAt(uid, RandomDirection() * _random.NextFloat(4f, 12f));
+    }
+
+    public void SplatAt(EntityUid uid, Vector2 direction)
+    {
+        SplatAt(Transform(uid).Coordinates, direction);
+    }
+
+    public void SplatAt(EntityCoordinates coordinates, Vector2 direction)
+    {
+        var puddle = EntityManager.Spawn("EkrixiSplatter");
+        _transformSystem.SetCoordinates(puddle, coordinates);
+
+        var physics = EnsureComp<PhysicsComponent>(puddle);
+        _physicsSystem.ApplyLinearImpulse(puddle, direction, body: physics);
+    }
+
     private void OnDamage(Entity<SplatterableComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta is null || !args.DamageIncreased)
@@ -46,13 +72,5 @@ public sealed class SplatterSystem : EntitySystem
         {
             return;
         }
-
-        var puddle = EntityManager.Spawn("EkrixiSplatter");
-        _transformSystem.SetCoordinates(puddle, Transform(ent.Owner).Coordinates);
-
-        var physics = EnsureComp<PhysicsComponent>(puddle);
-
-        var impulseVector = _random.NextVector2().Normalized() * _random.NextFloat(2f, 6f) * _random.NextFloat(1f, MathF.Min(1.25f, MathF.Max(bloodstream.BleedAmount, 2f)));
-        _physicsSystem.ApplyLinearImpulse(puddle, impulseVector, body: physics);
     }
 }
