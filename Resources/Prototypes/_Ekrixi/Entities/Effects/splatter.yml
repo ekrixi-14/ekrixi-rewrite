@@ -12,8 +12,8 @@
     layers:
     - state: smear0
       map: ["random"]
-    drawdepth: Puddles
-    color: "#DD222280"
+    drawdepth: HighFloorObjects
+    color: "#80000080"
   - type: RandomSprite
     available:
     - random:
@@ -23,7 +23,7 @@
         smear3: ""
         smear4: ""
   - type: Physics
-    bodyType: Static
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       slipFixture:
@@ -37,3 +37,5 @@
         hard: false
   - type: Appearance
   - type: IgnoresFingerprints
+  - type: TimedDespawn
+    lifetime: 600
