@@ -83,6 +83,7 @@
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
+  editorHidden: true
   color: "#D381C9"
   roles:
   - Borg
