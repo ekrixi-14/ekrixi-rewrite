@@ -46,7 +46,7 @@
       - MindRoleGhostRoleFamiliar
     - type: Loadout
       prototypes: [ DeathSquadGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomMetadata
       nameSegments:
         - NamesFirstMilitaryLeader
@@ -84,7 +84,7 @@
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
@@ -115,7 +115,7 @@
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVALecter
@@ -138,7 +138,7 @@
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVALecter ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## ERT Chaplain
 
@@ -176,7 +176,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
@@ -203,7 +203,7 @@
       job: ERTChaplain
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: BibleUser
 
 ## ERT Janitor
@@ -241,7 +241,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
@@ -268,7 +268,7 @@
       job: ERTJanitor
     - type: Loadout
       prototypes: [ ERTJanitorGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## ERT Engineer
 
@@ -305,7 +305,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
@@ -332,7 +332,7 @@
       job: ERTEngineer
     - type: Loadout
       prototypes: [ ERTEngineerGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## ERT Security
 
@@ -369,7 +369,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -396,7 +396,7 @@
       job: ERTSecurity
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVALecter
@@ -419,7 +419,7 @@
       job: ERTSecurity
     - type: Loadout
       prototypes: [ ERTSecurityGearEVALecter ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## ERT Medic
 
@@ -456,7 +456,7 @@
       - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -483,7 +483,7 @@
       job: ERTMedical
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ## CBURN
 
@@ -504,7 +504,7 @@
   components:
     - type: Loadout
       prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description

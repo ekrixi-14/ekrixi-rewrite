@@ -186,8 +186,7 @@
   id: PassengerNeck
   name: loadout-group-passenger-neck
   minLimit: 0
-  loadouts:
-  - Mantle
+  loadouts: []
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -266,7 +265,6 @@
   - SecurityHelmet
   - SecurityBeret
   - SecurityHat
-  - TrooperHat
 
 - type: loadoutGroup
   id: MercBelt

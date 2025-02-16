@@ -36,7 +36,7 @@
       description: ghost-role-information-command-description
     - type: Loadout
       prototypes: [ VisitorCE, VisitorCEAlt ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorCMO
@@ -47,7 +47,7 @@
       description: ghost-role-information-command-description
     - type: Loadout
       prototypes: [ VisitorCMO, VisitorCMOAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorHOP
@@ -69,7 +69,7 @@
       description: ghost-role-information-command-description
     - type: Loadout
       prototypes: [ VisitorHOS, VisitorHOSAlt ]
-      roleLoadout: [ RoleSurvivalSecurity ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorResearchDirector
@@ -115,7 +115,7 @@
       name: job-name-cadet
     - type: Loadout
       prototypes: [ VisitorSecurityCadet, VisitorSecurityCadetAlt ]
-      roleLoadout: [ RoleSurvivalSecurity ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorSecurityOfficer
@@ -125,7 +125,7 @@
       name: job-name-security
     - type: Loadout
       prototypes: [ VisitorSecurityOfficer, VisitorSecurityOfficerAlt ]
-      roleLoadout: [ RoleSurvivalSecurity ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorDetective
@@ -135,7 +135,7 @@
       name: job-name-detective
     - type: Loadout
       prototypes: [ VisitorDetective, VisitorDetectiveAlt ]
-      roleLoadout: [ RoleSurvivalSecurity ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorWarden
@@ -145,7 +145,7 @@
       name: job-name-warden
     - type: Loadout
       prototypes: [ VisitorWarden, VisitorWardenAlt ]
-      roleLoadout: [ RoleSurvivalSecurity ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Cargo
 
@@ -201,7 +201,7 @@
       name: job-name-atmostech
     - type: Loadout
       prototypes: [ VisitorAtmosTech, VisitorAtmosTechAlt ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorTechnicalAssistant
@@ -211,7 +211,7 @@
       name: job-name-technical-assistant
     - type: Loadout
       prototypes: [ VisitorTechnicalAssistant, VisitorTechnicalAssistantAlt ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorEngineer
@@ -221,7 +221,7 @@
       name: job-name-engineer
     - type: Loadout
       prototypes: [ VisitorEngineer, VisitorEngineerAlt ]
-      roleLoadout: [ RoleSurvivalExtended ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Medical
 
@@ -244,7 +244,7 @@
       name: job-name-intern
     - type: Loadout
       prototypes: [ VisitorMedicalIntern, VisitorMedicalInternAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorMedicalDoctor
@@ -254,7 +254,7 @@
       name: job-name-doctor
     - type: Loadout
       prototypes: [ VisitorMedicalDoctor, VisitorMedicalDoctorAlt , VisitorScrubsPurple, VisitorScrubsGreen, VisitorScrubsBlue]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorParamedic
@@ -264,7 +264,7 @@
       name: job-name-paramedic
     - type: Loadout
       prototypes: [ VisitorParamedic, VisitorParamedicAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorVirologist
@@ -274,7 +274,7 @@
       name: ghost-role-information-medical-virologist-name
     - type: Loadout
       prototypes: [ VisitorVirologist, VisitorVirologistAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorGeneticist
@@ -284,7 +284,7 @@
       name: ghost-role-information-medical-geneticist-name
     - type: Loadout
       prototypes: [ VisitorGeneticist, VisitorGeneticistAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorPsychologist
@@ -294,7 +294,7 @@
       name: job-name-psychologist
     - type: Loadout
       prototypes: [ VisitorPsychologist, VisitorPsychologistAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorChemist
@@ -304,7 +304,7 @@
       name: job-name-chemist
     - type: Loadout
       prototypes: [ VisitorChemist, VisitorChemistAlt ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: VisitorDentist
@@ -314,7 +314,7 @@
       name: ghost-role-information-medical-dentist-name
     - type: Loadout
       prototypes: [ VisitorDentist ]
-      roleLoadout: [ RoleSurvivalMedical ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Science
 
@@ -422,7 +422,7 @@
       name: job-name-clown
     - type: Loadout
       prototypes: [ VisitorClown ]
-      roleLoadout: [ RoleSurvivalClown ]
+      roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomMetadata
       nameSegments:
       - names_clown
@@ -546,7 +546,7 @@
   components:
     - type: Loadout
       prototypes: [ BananaClown ]
-      roleLoadout: [ RoleSurvivalClown ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 # Misc
 
@@ -798,7 +798,7 @@
         settings: default
     - type: Loadout
       prototypes: [ PirateScoonerAltA, PirateScoonerAltB, PirateScoonerAltC, PirateScoonerAltD ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 - type: randomHumanoidSettings
   id: PirateCaptainScooner
@@ -815,7 +815,7 @@
         settings: default
     - type: Loadout
       prototypes: [ PirateCaptainScooner ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
 
 ### Other
 
@@ -849,4 +849,4 @@
         settings: default
     - type: Loadout
       prototypes: [ CossackGear ]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalStandard ]
