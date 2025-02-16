@@ -4,7 +4,7 @@ using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
 
-namespace Content.Client.Throwing;
+namespace Content.Client._Ekrixi.Splatter;
 
 /// <summary>
 ///     Handles animating splatting items.
@@ -60,7 +60,7 @@ public sealed class SplatterVisualizerSystem : EntitySystem
         if (length <= TimeSpan.Zero)
             return null;
 
-        length += TimeSpan.FromSeconds(ThrowingSystem.FlyTime);
+        length += TimeSpan.FromSeconds(3f); // should not be hardcoded
         var scale = ent.Comp2.Scale;
         var lenFloat = (float) length.TotalSeconds;
 
