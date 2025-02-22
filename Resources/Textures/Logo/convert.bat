@@ -5,5 +5,6 @@ magick convert icon.png -resize 48x48   icon/icon-48x48.png
 magick convert icon.png -resize 32x32   icon/icon-32x32.png
 magick convert icon.png -resize 24x24   icon/icon-24x24.png
 magick convert icon.png -resize 16x16   icon/icon-16x16.png
+magick convert icon.png -define icon:auto-resize=16,24,32,48,64,128,256 -compress zip icon.ico
 
 pause
