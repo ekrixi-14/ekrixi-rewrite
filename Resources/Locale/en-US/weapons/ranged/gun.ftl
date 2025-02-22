@@ -1,6 +1,6 @@
 
 gun-selected-mode-examine = Current selected fire mode is [color={$color}]{$mode}[/color].
-gun-fire-rate-examine = Fire rate is [color={$color}]{$fireRate}[/color] per second.
+gun-fire-rate-examine = Fire rate is [color={$color}]{$fireRate}[/color] rounds per minute.
 gun-selector-verb = Change to {$mode}
 gun-selected-mode = Selected {$mode}
 gun-disabled = You can't use guns!
