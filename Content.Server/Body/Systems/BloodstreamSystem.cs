@@ -233,7 +233,6 @@ public sealed class BloodstreamSystem : EntitySystem
         var total = bloodloss.GetTotal();
         var totalFloat = total.Float();
         TryModifyBleedAmount(ent, totalFloat, ent);
-        Logger.Debug(totalFloat.ToString());
 
         // begin ekrixi edit
         if (totalFloat > 1f)
