@@ -1,18 +1,23 @@
+using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.DeviceNetwork;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceNetwork;
 using Content.Shared.Interaction;
 using Content.Shared.MouseRotator;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 
 namespace Content.Server._Ekrixi.ShipWeapons;
 
 /// <summary>
-/// This handles...
+/// This handles ship weapons and device linking.
 /// </summary>
 public sealed class ShipWeaponsSystem : EntitySystem
 {
@@ -34,6 +39,25 @@ public sealed class ShipWeaponsSystem : EntitySystem
         ent.Comp.WeaponTransform ??= Transform(ent);
     }
 
+    public void UpdateGunneryData(Entity<ShipWeaponComponent> ent, GunComponent? gun = null, DeviceLinkSourceComponent? source = null)
+    {
+        if (!Resolve(ent, ref gun) || !Resolve(ent, ref source))
+            return;
+
+        var ev = new GetAmmoCountEvent();
+        RaiseLocalEvent(ent, ref ev);
+
+        var port = ent.Comp.SourceData;
+        var data = new NetworkPayload
+        {
+            [DeviceNetworkConstants.LogicState] = SignalState.High,
+            [DeviceNetworkConstants.Command] = ShipWeaponConstants.CommandUpdateGunnery,
+            [ShipWeaponConstants.AmmoCount] = ev.Count,
+            [ShipWeaponConstants.MaxAmmoCount] = ev.Capacity,
+        };
+        _deviceLinkSystem.InvokePort(ent.Owner, port, data);
+    }
+
     public bool TryFireShipWeapon(Entity<ShipWeaponComponent> ent, GunComponent? gun = null)
     {
         if (!Resolve(ent, ref gun))
@@ -49,6 +73,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         }
 
         _gunSystem.AttemptShoot(ent, EnsureComp<GunComponent>(ent));
+        UpdateGunneryData(ent, gun);
         return true;
     }
 
@@ -60,7 +85,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
             TryFireShipWeapon(ent);
         else if (args.Port == ent.Comp.PortAim)
         {
-
+            // TODO: Aim work
         }
     }
 
@@ -75,7 +100,10 @@ public sealed class ShipWeaponsSystem : EntitySystem
             ent.Comp.PortAim,
             ent.Comp.PortAutofire,
         ]);
-        _deviceLinkSystem.EnsureSourcePorts(ent, [ent.Comp.SourceData]);
+        _deviceLinkSystem.EnsureSourcePorts(ent,
+        [
+            ent.Comp.SourceData
+        ]);
     }
 
     public override void Update(float frameTime)
