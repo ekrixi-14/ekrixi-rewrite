@@ -19,11 +19,11 @@
 - type: sourcePort
   id: EkrixiDataGunnery
   name: signal-source-name-weapon-gunnery-data
-  description: signal-port-description-weapon-gunnery-data
+  description: signal-source-description-weapon-gunnery-data
   defaultLinks: [ EkrixiDataGunnery ]
 
 - type: sourcePort
   id: EkrixiDataRadar
   name: signal-source-name-weapon-radar-data
-  description: signal-port-description-weapon-radar-data
+  description: signal-source-description-weapon-radar-data
   defaultLinks: [ EkrixiDataRadar ]
