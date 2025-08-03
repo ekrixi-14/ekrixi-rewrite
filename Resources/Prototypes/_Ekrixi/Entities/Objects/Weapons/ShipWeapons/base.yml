@@ -64,6 +64,14 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: DeviceLinkSink
+    ports:
+    - EkrixiFire
+    - EkrixiAim
+    - EkrixiAutofire
+  - type: DeviceLinkSource
+    ports:
+    - EkrixiDataGunnery
   - type: ShipWeapon # Define this as a ship weapon
   - type: MouseRotator
     angleTolerance: 5
