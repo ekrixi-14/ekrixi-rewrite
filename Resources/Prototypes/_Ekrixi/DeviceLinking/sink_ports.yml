@@ -1,0 +1,24 @@
+- type: sinkPort
+  id: EkrixiFire
+  name: signal-port-name-weapon-fire
+  description: signal-port-description-weapon-fire
+
+- type: sinkPort
+  id: EkrixiAim
+  name: signal-port-name-weapon-aim
+  description: signal-port-description-weapon-aim
+
+- type: sinkPort
+  id: EkrixiAutofire
+  name: signal-port-name-weapon-autofire
+  description: signal-port-description-weapon-autofire
+
+- type: sinkPort
+  id: EkrixiDataGunnery
+  name: signal-port-name-weapon-gunnery-data
+  description: signal-port-description-weapon-gunnery-data
+
+- type: sinkPort
+  id: EkrixiDataRadar
+  name: signal-port-name-weapon-radar-data
+  description: signal-port-description-weapon-radar-data

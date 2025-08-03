@@ -94,7 +94,9 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Opens then closes the bolt, or just closes it if currently open.
     /// </summary>
-    private void UseChambered(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null)
+    // BEGIN EKRIXI EDIT
+    public void UseChambered(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null)
+    // END BEGIN EKRIXI EDIT
     {
         if (component.BoltClosed == false)
         {

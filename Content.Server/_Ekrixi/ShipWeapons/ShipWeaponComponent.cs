@@ -1,0 +1,39 @@
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server._Ekrixi.ShipWeapons;
+
+/// <summary>
+/// Given to guns that are considered ship weapons.
+/// </summary>
+[RegisterComponent]
+public sealed partial class ShipWeaponComponent : Component
+{
+    /// <summary>
+    /// The target angle that this ship weapon will attempt to maneuver toward.
+    /// </summary>
+    public Angle DesiredAngle = Angle.Zero;
+    /// <summary>
+    /// The coordinate target that this weapon will attempt to angle toward.
+    /// </summary>
+    public EntityCoordinates? Target = null;
+    /// <summary>
+    /// Is this gun automatically firing?
+    /// </summary>
+    [DataField] public bool AutoFire;
+
+    public TransformComponent? WeaponTransform;
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> PortFire = "EkrixiFire";
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> PortAim = "EkrixiAim";
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> PortAutofire = "EkrixiAutofire";
+
+    [DataField]
+    public ProtoId<SourcePortPrototype> SourceData = "EkrixiDataGunnery";
+}

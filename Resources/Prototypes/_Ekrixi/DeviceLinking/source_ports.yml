@@ -1,0 +1,29 @@
+- type: sourcePort
+  id: EkrixiFire
+  name: signal-source-name-weapon-fire
+  description: signal-source-description-weapon-fire
+  defaultLinks: [ EkrixiFire ]
+
+- type: sourcePort
+  id: EkrixiAim
+  name: signal-source-name-weapon-aim
+  description: signal-source-description-weapon-aim
+  defaultLinks: [ EkrixiAim ]
+
+- type: sourcePort
+  id: EkrixiAutofire
+  name: signal-source-name-weapon-autofire
+  description: signal-source-description-weapon-autofire
+  defaultLinks: [ EkrixiAutofire ]
+
+- type: sourcePort
+  id: EkrixiDataGunnery
+  name: signal-source-name-weapon-gunnery-data
+  description: signal-port-description-weapon-gunnery-data
+  defaultLinks: [ EkrixiDataGunnery ]
+
+- type: sourcePort
+  id: EkrixiDataRadar
+  name: signal-source-name-weapon-radar-data
+  description: signal-port-description-weapon-radar-data
+  defaultLinks: [ EkrixiDataRadar ]
