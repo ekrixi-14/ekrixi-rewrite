@@ -4,13 +4,13 @@
   name: gunnery/targeting computer
   description: Displays important radar and controls linked gunnery. Not designed for host-ships.
   components:
-#  - type: EmergencyShuttleConsole
-#  - type: ActivatableUI
-#    key: enum.EmergencyConsoleUiKey.Key
+  - type: GunneryComputer
+  - type: ActivatableUI
+    key: enum.GunnerComputerUiKey.Key
   - type: UserInterface
     interfaces:
-#      enum.EmergencyConsoleUiKey.Key:
-#        type: EmergencyConsoleBoundUserInterface
+      enum.GunnerComputerUiKey.Key:
+        type: GunnerComputerBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Sprite

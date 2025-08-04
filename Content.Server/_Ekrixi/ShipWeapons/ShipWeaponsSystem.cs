@@ -1,16 +1,24 @@
+using System.Numerics;
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Ekrixi.ShipWeapons;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Interaction;
 using Content.Shared.MouseRotator;
+using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Shuttles.Components;
+using Content.Shared.Shuttles.Systems;
+using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 
@@ -22,24 +30,35 @@ namespace Content.Server._Ekrixi.ShipWeapons;
 public sealed class ShipWeaponsSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
-    [Dependency] private readonly GunSystem _gunSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
+    [Dependency] private readonly GunSystem _gunSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ShipWeaponComponent, ComponentInit>(ComponentInit);
-        SubscribeLocalEvent<ShipWeaponComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<ShipWeaponComponent, SignalReceivedEvent>(OnSignalReceived);
+        SubscribeLocalEvent<ShipWeaponComponent, ComponentInit>(OnShipWeaponComponentInit);
+        SubscribeLocalEvent<ShipWeaponComponent, ComponentStartup>(OnShipWeaponComponentStartup);
+        SubscribeLocalEvent<ShipWeaponComponent, SignalReceivedEvent>(OnShipWeaponSignalReceived);
+
+        SubscribeLocalEvent<GunneryComputerComponent, ComponentStartup>(OnComputerComponentStartup);
     }
 
-    private void OnComponentStartup(Entity<ShipWeaponComponent> ent, ref ComponentStartup args)
+    private void OnComputerComponentStartup(Entity<GunneryComputerComponent> ent, ref ComponentStartup args)
+    {
+        UpdateConsoleState(ent.Owner, ent.Comp);
+    }
+
+    private void OnShipWeaponComponentStartup(Entity<ShipWeaponComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.WeaponTransform ??= Transform(ent);
     }
 
-    public void UpdateGunneryData(Entity<ShipWeaponComponent> ent, GunComponent? gun = null, DeviceLinkSourceComponent? source = null)
+    public void UpdateGunneryData(Entity<ShipWeaponComponent> ent,
+        GunComponent? gun = null,
+        DeviceLinkSourceComponent? source = null)
     {
         if (!Resolve(ent, ref gun) || !Resolve(ent, ref source))
             return;
@@ -77,7 +96,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         return true;
     }
 
-    private void OnSignalReceived(Entity<ShipWeaponComponent> ent, ref SignalReceivedEvent args)
+    private void OnShipWeaponSignalReceived(Entity<ShipWeaponComponent> ent, ref SignalReceivedEvent args)
     {
         if (args.Port == ent.Comp.PortAutofire)
             ent.Comp.AutoFire = !ent.Comp.AutoFire;
@@ -89,7 +108,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         }
     }
 
-    private void ComponentInit(Entity<ShipWeaponComponent> ent, ref ComponentInit args)
+    private void OnShipWeaponComponentInit(Entity<ShipWeaponComponent> ent, ref ComponentInit args)
     {
         _containerSystem.EnsureContainer<ContainerSlot>(ent, "gun_magazine");
         _containerSystem.EnsureContainer<ContainerSlot>(ent, "gun_chamber");
@@ -106,7 +125,25 @@ public sealed class ShipWeaponsSystem : EntitySystem
         ]);
     }
 
-    public override void Update(float frameTime)
+    private void UpdateConsoleState(EntityUid uid, GunneryComputerComponent component)
+    {
+        if (!_uiSystem.HasUi(uid, GunnerComputerUiKey.Key))
+            return;
+
+        var xform = Transform(uid);
+        var onGrid = xform.ParentUid == xform.GridUid;
+
+        var docks = _console.GetAllDocks();
+        var state = !onGrid ? _console.GetNavState(uid, docks) : _console.GetNavState(uid, docks, xform.Coordinates, xform.LocalRotation);
+
+        _uiSystem.SetUiState(
+            uid,
+            GunnerComputerUiKey.Key,
+            new GunnerComputerBoundInterfaceState(state, new (), new (), onGrid)
+        );
+    }
+
+public override void Update(float frameTime)
     {
         base.Update(frameTime);
 

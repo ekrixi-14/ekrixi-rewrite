@@ -1,0 +1,87 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
+                      Title="{Loc 'gunner-computer-window-title'}"
+                      SetSize="1100 688"
+                      MinSize="1100 688">
+    <GridContainer Columns="3"
+                  HorizontalAlignment="Stretch"
+                  Margin="5 5 5 5">
+        <!-- Readonly data display -->
+        <BoxContainer Name="LeftDisplay"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Right"
+                      MinWidth="200"
+                      MaxWidth="200"
+                      Align="Center"
+                      Orientation="Vertical">
+            <controls:StripeBack>
+                <Label Text="{Loc 'gunner-computer-display-radar-label'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer>
+                <GridContainer Columns="2"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Top">
+                    <Label Text="{Loc 'gunner-computer-max-radar-label'}"/>
+                    <Label Name="MaxRadarRange"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                    <Label Text="{Loc 'gunner-computer-radar-label'}"/>
+                    <Label Name="RadarRange"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                </GridContainer>
+            </BoxContainer>
+            <controls:StripeBack>
+                <Label Name="GunControlLabel" Text="{Loc 'gunner-computer-display-turret-data-label'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer>
+                <GridContainer Columns="2"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Top">
+                    <Label Text="{Loc 'gunner-computer-ammo-label'}"/>
+                    <Label Name="AmmoCounter" Text="10/10"/>
+                    <Label Text="{Loc 'gunner-computer-autofire-label'}"/>
+                    <Label Name="AutofireLabel" Text="Disabled"/>
+                </GridContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Radar screen -->
+        <PanelContainer MinSize="256 256"
+                        HorizontalAlignment = "Stretch"
+                        HorizontalExpand = "True"
+                        VerticalExpand = "True">
+            <ui:ShuttleNavControl Name="RadarScreen"
+                             MouseFilter="Stop"
+                             Margin="4"
+                             HorizontalExpand = "True"
+                             VerticalExpand = "True"/>
+        </PanelContainer>
+
+        <!-- Control display -->
+        <BoxContainer Name="RightDisplay"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Right"
+                      MinWidth="200"
+                      MaxWidth="200"
+                      Align="Center"
+                      Orientation="Vertical">
+            <controls:StripeBack>
+                <Label Text="{Loc 'gunner-computer-display-gun-control-label'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer>
+                <GridContainer Columns="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+
+                    <Button SetSize="90 90" Name="AutofireButton" Text="{Loc 'gunner-computer-button-autofire-text' }" />
+                    <Button SetSize="90 90" Name="FireButton" Text="{Loc 'gunner-computer-button-fire-text' }" />
+
+                    <Button SetSize="90 90" Name="EjectButton" Text="{Loc 'gunner-computer-button-eject-text' }" />
+                    <Button SetSize="90 90" Name="ChamberButton" Text="{Loc 'gunner-computer-button-chamber-text' }" />
+                </GridContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </GridContainer>
+</controls:FancyWindow>
