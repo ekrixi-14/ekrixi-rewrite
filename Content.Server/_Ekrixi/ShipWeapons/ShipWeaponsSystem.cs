@@ -43,7 +43,60 @@ public sealed class ShipWeaponsSystem : EntitySystem
         SubscribeLocalEvent<ShipWeaponComponent, ComponentStartup>(OnShipWeaponComponentStartup);
         SubscribeLocalEvent<ShipWeaponComponent, SignalReceivedEvent>(OnShipWeaponSignalReceived);
 
+        SubscribeLocalEvent<GunneryComputerComponent, SignalReceivedEvent>(OnComputerSignalReceived);
         SubscribeLocalEvent<GunneryComputerComponent, ComponentStartup>(OnComputerComponentStartup);
+        SubscribeLocalEvent<GunneryComputerComponent, ComponentInit>(OnComputerComponentInit);
+
+        SubscribeLocalEvent<GunneryComputerComponent, SetTurretAutoFireMessage>(OnSetTurretAutoFireMessage);
+        SubscribeLocalEvent<GunneryComputerComponent, FireTurretMessage>(OnFireTurretMessage);
+        SubscribeLocalEvent<GunneryComputerComponent, SetTurretTargetCoordinates>(OnSetTurretTargetCoordinates);
+    }
+
+    private void OnSetTurretTargetCoordinates(Entity<GunneryComputerComponent> ent, ref SetTurretTargetCoordinates args)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnFireTurretMessage(Entity<GunneryComputerComponent> ent, ref FireTurretMessage args)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnSetTurretAutoFireMessage(Entity<GunneryComputerComponent> ent, ref SetTurretAutoFireMessage args)
+    {
+        var data = new NetworkPayload
+        {
+            [DeviceNetworkConstants.LogicState] = SignalState.High,
+        };
+        _deviceLinkSystem.InvokePort(ent.Owner, ent.Comp.SourceAutofire, data);
+    }
+
+    private void OnComputerComponentInit(Entity<GunneryComputerComponent> ent, ref ComponentInit args)
+    {
+        _deviceLinkSystem.EnsureSinkPorts(ent,
+        [
+            ent.Comp.SinkGunnery,
+        ]);
+        _deviceLinkSystem.EnsureSourcePorts(ent,
+        [
+            ent.Comp.SourceAutofire,
+            ent.Comp.SourceFire,
+            ent.Comp.SourceAim
+        ]);
+    }
+
+    private void OnComputerSignalReceived(Entity<GunneryComputerComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port != ent.Comp.SinkGunnery || !args.Trigger.HasValue || args.Data == null)
+            return;
+        args.Data.TryGetValue<int>(ShipWeaponConstants.AmmoCount, out var ammoCount);
+        args.Data.TryGetValue<int>(ShipWeaponConstants.MaxAmmoCount, out var ammoCapacity);
+
+        ent.Comp.GunneryTurretData[args.Trigger.Value] = new GunneryTurretData
+        {
+            AmmoCount = ammoCount,
+            MaxAmmoCount = ammoCapacity
+        };
     }
 
     private void OnComputerComponentStartup(Entity<GunneryComputerComponent> ent, ref ComponentStartup args)
@@ -143,7 +196,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         );
     }
 
-public override void Update(float frameTime)
+    public override void Update(float frameTime)
     {
         base.Update(frameTime);
 

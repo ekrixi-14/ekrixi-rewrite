@@ -34,7 +34,9 @@
   - type: DeviceLinkSink
     ports:
     - EkrixiDataGunnery
-    - EkrixiDataRadar
+    - EkrixiAim
+    - EkrixiFire
+    - EkrixiAutofire
   - type: PointLight
     radius: 1.5
     energy: 1.6

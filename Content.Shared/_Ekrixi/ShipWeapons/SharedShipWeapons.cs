@@ -47,4 +47,10 @@ public sealed class SetTurretAutoFireMessage(bool autoFire) : BoundUserInterface
 }
 
 [Serializable, NetSerializable]
+public sealed class SetTurretTargetCoordinates(NetCoordinates targetCoordinates) : BoundUserInterfaceMessage
+{
+    public readonly NetCoordinates TargetCoordinates = targetCoordinates;
+}
+
+[Serializable, NetSerializable]
 public sealed class FireTurretMessage : BoundUserInterfaceMessage;
