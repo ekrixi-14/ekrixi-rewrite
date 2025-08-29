@@ -7,6 +7,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Actions
+  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:
@@ -26,13 +27,6 @@
     drawdepth: Mobs
     layers:
     - state: syndie_lethal
-  - type: InteractionPopup
-    interactDelay: 0.2
-    successChance: 0.8
-    interactSuccessString: petting-success-generic
-    interactFailureString: petting-failure-generic
-    interactSuccessSound:
-      path: /Audio/Effects/double_beep.ogg
   - type: CombatMode
     toggleMouseRotator: false
   - type: Damageable
@@ -64,6 +58,9 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
   - type: DeviceLinkSink
     ports:
     - EkrixiFire
@@ -77,7 +74,7 @@
     angleTolerance: 5
     rotationSpeed: 180
     simple4DirMode: false
-  - type: Gun # MAke the gun actually owrk
+  - type: Gun # Make the gun actually owrk
     fireRate: 6
     selectedMode: FullAuto
     availableModes:
@@ -111,7 +108,10 @@
 - type: entity
   parent: EkrixiBaseShipWeapon
   id: EkrixiShipWeapon
+  name: gun
   suffix: Ekrixi
   components:
+  - type: ShipWeapon
+    rotationSpeed: 7.85
   - type: Gun
     fireRate: 8

@@ -24,7 +24,10 @@ public sealed partial class GunnerComputerWindow : FancyWindow,
 
         WorldRangeChange(RadarScreen.WorldRange);
         RadarScreen.WorldRangeChanged += WorldRangeChange;
-        RadarScreen.OnRadarClick += coordinates => { OnRadarClick?.Invoke(coordinates); };
+        RadarScreen.OnRadarClick += coordinates =>
+        {
+            OnRadarClick?.Invoke(coordinates);
+        };
 
         FireButton.OnButtonDown += _ => { OnFireClick?.Invoke(); };
         EjectButton.OnButtonDown += _ => { OnEjectClick?.Invoke(); };

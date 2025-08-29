@@ -23,7 +23,7 @@ public sealed class GunnerComputerBoundUserInterface : BoundUserInterface
         _window.OnClose += OnClose;
         _window.OnRadarClick += args =>
         {
-            var msg = new SetTurretRotationToMessage(_entityManager.GetNetCoordinates(args));
+            var msg = new SetTurretTargetCoordinatesMessage(_entityManager.GetNetCoordinates(args));
             SendMessage(msg);
         };
         _window.OnFireClick += () =>

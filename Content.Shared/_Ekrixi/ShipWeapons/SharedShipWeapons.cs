@@ -35,19 +35,13 @@ public struct TurretData(int currentAmmo, int ammoCapacity, NetCoordinates coord
 }
 
 [Serializable, NetSerializable]
-public sealed class SetTurretRotationToMessage(NetCoordinates coordinates) : BoundUserInterfaceMessage
-{
-    public readonly NetCoordinates Coordinates = coordinates;
-}
-
-[Serializable, NetSerializable]
 public sealed class SetTurretAutoFireMessage(bool autoFire) : BoundUserInterfaceMessage
 {
     public readonly bool AutoFire = autoFire;
 }
 
 [Serializable, NetSerializable]
-public sealed class SetTurretTargetCoordinates(NetCoordinates targetCoordinates) : BoundUserInterfaceMessage
+public sealed class SetTurretTargetCoordinatesMessage(NetCoordinates targetCoordinates) : BoundUserInterfaceMessage
 {
     public readonly NetCoordinates TargetCoordinates = targetCoordinates;
 }

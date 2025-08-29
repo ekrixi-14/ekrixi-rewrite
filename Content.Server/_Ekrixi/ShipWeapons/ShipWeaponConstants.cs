@@ -11,6 +11,10 @@ public static class ShipWeaponConstants
     /// </summary>
     public const string CommandUpdateGunnery = "EkrixiUpdateGunnery";
     /// <summary>
+    /// Command name when gunnery data is updated.
+    /// </summary>
+    public const string TargetCoordinate = "target_coordinate";
+    /// <summary>
     /// How much ammo does this turret have?
     /// </summary>
     public const string AmmoCount = "ammo_count";

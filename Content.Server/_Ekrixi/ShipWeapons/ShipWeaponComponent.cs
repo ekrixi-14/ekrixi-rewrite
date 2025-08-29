@@ -23,6 +23,15 @@ public sealed partial class ShipWeaponComponent : Component
     /// </summary>
     [DataField] public bool AutoFire;
 
+    /// <summary>
+    /// The tolerance of the rotation, or at what point is it considered "close enough"
+    /// </summary>
+    [DataField] public double AngleTolerance = Math.PI;
+    /// <summary>
+    /// How fast the weapon rotates
+    /// </summary>
+    [DataField] public double RotationSpeed = Math.PI;
+
     public TransformComponent? WeaponTransform;
 
     [DataField]

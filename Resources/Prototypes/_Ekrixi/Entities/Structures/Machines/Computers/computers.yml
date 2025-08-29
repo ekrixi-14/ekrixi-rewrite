@@ -26,6 +26,9 @@
       state: aiming_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
   - type: DeviceLinkSource
     ports:
     - EkrixiFire
@@ -34,9 +37,6 @@
   - type: DeviceLinkSink
     ports:
     - EkrixiDataGunnery
-    - EkrixiAim
-    - EkrixiFire
-    - EkrixiAutofire
   - type: PointLight
     radius: 1.5
     energy: 1.6

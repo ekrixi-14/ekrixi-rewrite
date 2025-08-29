@@ -4,17 +4,12 @@ using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Weapons.Ranged.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Ekrixi.ShipWeapons;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Interaction;
-using Content.Shared.MouseRotator;
-using Content.Shared.Shuttles.BUIStates;
-using Content.Shared.Shuttles.Components;
-using Content.Shared.Shuttles.Systems;
-using Content.Shared.UserInterface;
+using Content.Shared.Rotatable;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
@@ -29,6 +24,7 @@ namespace Content.Server._Ekrixi.ShipWeapons;
 /// </summary>
 public sealed class ShipWeaponsSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
@@ -49,12 +45,17 @@ public sealed class ShipWeaponsSystem : EntitySystem
 
         SubscribeLocalEvent<GunneryComputerComponent, SetTurretAutoFireMessage>(OnSetTurretAutoFireMessage);
         SubscribeLocalEvent<GunneryComputerComponent, FireTurretMessage>(OnFireTurretMessage);
-        SubscribeLocalEvent<GunneryComputerComponent, SetTurretTargetCoordinates>(OnSetTurretTargetCoordinates);
+        SubscribeLocalEvent<GunneryComputerComponent, SetTurretTargetCoordinatesMessage>(OnSetTurretTargetCoordinates);
     }
 
-    private void OnSetTurretTargetCoordinates(Entity<GunneryComputerComponent> ent, ref SetTurretTargetCoordinates args)
+    private void OnSetTurretTargetCoordinates(Entity<GunneryComputerComponent> ent, ref SetTurretTargetCoordinatesMessage args)
     {
-        throw new NotImplementedException();
+        var data = new NetworkPayload
+        {
+            [DeviceNetworkConstants.LogicState] = SignalState.High,
+            [ShipWeaponConstants.TargetCoordinate] = EntityManager.GetCoordinates(args.TargetCoordinates),
+        };
+        _deviceLinkSystem.InvokePort(ent.Owner, ent.Comp.SourceAim, data);
     }
 
     private void OnFireTurretMessage(Entity<GunneryComputerComponent> ent, ref FireTurretMessage args)
@@ -157,8 +158,20 @@ public sealed class ShipWeaponsSystem : EntitySystem
             TryFireShipWeapon(ent);
         else if (args.Port == ent.Comp.PortAim)
         {
-            // TODO: Aim work
+            if (args.Data != null &&
+                args.Data.TryGetValue(ShipWeaponConstants.TargetCoordinate, out EntityCoordinates targetCoordinate))
+                TryAimShipWeapon(ent, targetCoordinate);
         }
+    }
+
+    private void TryAimShipWeapon(Entity<ShipWeaponComponent> ent, EntityCoordinates targetCoordinate)
+    {
+        var xform = Transform(ent);
+        var origin = _transformSystem.ToMapCoordinates(xform.Coordinates).Position;
+        var target = _transformSystem.ToMapCoordinates(targetCoordinate).Position;
+        var angle = (target - origin).ToWorldAngle();
+        ent.Comp.DesiredAngle = angle;
+        ent.Comp.Target = targetCoordinate;
     }
 
     private void OnShipWeaponComponentInit(Entity<ShipWeaponComponent> ent, ref ComponentInit args)
@@ -200,13 +213,10 @@ public sealed class ShipWeaponsSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ShipWeaponComponent, MouseRotatorComponent>();
-        while (query.MoveNext(out var entity, out var component, out var mouseRot))
+        var query = EntityQueryEnumerator<ShipWeaponComponent, RotatableComponent>();
+        while (query.MoveNext(out var entity, out var component, out _))
         {
-            if (mouseRot.GoalRotation.HasValue)
-                component.DesiredAngle = mouseRot.GoalRotation.Value;
-
-            _rotate.TryRotateTo(entity, component.DesiredAngle, frameTime, mouseRot.AngleTolerance, mouseRot.RotationSpeed, component.WeaponTransform);
+            _rotate.TryRotateTo(entity, component.DesiredAngle, frameTime, component.AngleTolerance, component.RotationSpeed);
 
             if (component.AutoFire)
                 TryFireShipWeapon((entity, component));
