@@ -60,11 +60,43 @@ public sealed partial class GunnerComputerWindow : FancyWindow,
         var currentAmmo = 0;
         var ammoCapacity = 0;
 
+        bool? autofiring = null;
+        var desynced = false;
+        var hasTurrets = scc.Turrets.Count > 0;
+
         foreach (var turret in scc.Turrets)
         {
             currentAmmo += turret.CurrentAmmo;
             ammoCapacity += turret.AmmoCapacity;
+
+            if (desynced)
+                continue;
+            if (!autofiring.HasValue)
+                autofiring = turret.Autofire;
+            else
+            {
+                if (autofiring.Value != turret.Autofire)
+                    desynced = true;
+            }
         }
+
+        AutofireButton.Pressed = autofiring ?? false;
+        var text = "broken; call rain";
+
+        if (!hasTurrets || !autofiring.HasValue)
+        {
+            text = "No data";
+        }
+        else if (desynced)
+        {
+            text = "Desynced";
+        }
+        else
+        {
+            text = autofiring.Value ? "Enabled" : "Disabled";
+        }
+
+        AutofireLabel.Text = text;
 
         AmmoCounter.Text = currentAmmo <= 0 ? Loc.GetString("gunner-computer-no-ammo-text") : $"{currentAmmo}/{ammoCapacity}";
         MaxRadarRange.Text = $"{scc.State.MaxRange:0}m";

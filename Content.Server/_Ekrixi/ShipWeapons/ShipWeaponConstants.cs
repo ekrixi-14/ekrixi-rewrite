@@ -22,4 +22,8 @@ public static class ShipWeaponConstants
     /// How much ammo can this turret hold?
     /// </summary>
     public const string MaxAmmoCount = "ammo_count_max";
+    /// <summary>
+    /// Is this gun autofiring?
+    /// </summary>
+    public const string IsAutofiring = "autofiring";
 }

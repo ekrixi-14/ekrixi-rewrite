@@ -103,12 +103,14 @@ public sealed class ShipWeaponsSystem : EntitySystem
             return;
         args.Data.TryGetValue<int>(ShipWeaponConstants.AmmoCount, out var ammoCount);
         args.Data.TryGetValue<int>(ShipWeaponConstants.MaxAmmoCount, out var ammoCapacity);
+        args.Data.TryGetValue<bool>(ShipWeaponConstants.IsAutofiring, out var autofire);
         var xform = Transform(args.Trigger.Value);
 
         ent.Comp.GunneryTurretData[args.Trigger.Value] = new ShipWeaponData
         {
             CurrentAmmo = ammoCount,
             AmmoCapacity = ammoCapacity,
+            Autofire = autofire,
             Direction = xform.LocalRotation,
             Coordinates = EntityManager.GetNetCoordinates(xform.Coordinates),
         };
@@ -142,6 +144,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
             [DeviceNetworkConstants.Command] = ShipWeaponConstants.CommandUpdateGunnery,
             [ShipWeaponConstants.AmmoCount] = ev.Count,
             [ShipWeaponConstants.MaxAmmoCount] = ev.Capacity,
+            [ShipWeaponConstants.IsAutofiring] = ent.Comp.AutoFire,
         };
         _deviceLinkSystem.InvokePort(ent.Owner, port, data);
     }
@@ -169,7 +172,12 @@ public sealed class ShipWeaponsSystem : EntitySystem
     private void OnShipWeaponSignalReceived(Entity<ShipWeaponComponent> ent, ref SignalReceivedEvent args)
     {
         if (args.Port == ent.Comp.PortAutofire)
-            ent.Comp.AutoFire = !ent.Comp.AutoFire;
+        {
+            if (args.Data != null && args.Data.TryGetValue<bool>(DeviceNetworkConstants.StateEnabled, out var enabled))
+                ent.Comp.AutoFire = enabled;
+            else
+                ent.Comp.AutoFire = !ent.Comp.AutoFire;
+        }
         else if (args.Port == ent.Comp.PortFire)
             TryFireShipWeapon(ent);
         else if (args.Port == ent.Comp.PortAim)

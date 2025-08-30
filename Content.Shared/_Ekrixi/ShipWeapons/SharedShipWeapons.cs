@@ -27,12 +27,13 @@ public sealed class GunnerComputerBoundInterfaceState(
 }
 
 [Serializable, NetSerializable]
-public struct ShipWeaponData(int currentAmmo, int ammoCapacity, Angle direction, NetCoordinates coordinates)
+public struct ShipWeaponData(int currentAmmo, int ammoCapacity, Angle direction, NetCoordinates coordinates, bool autofire)
 {
     public int CurrentAmmo = currentAmmo;
     public int AmmoCapacity = ammoCapacity;
     public NetCoordinates Coordinates = coordinates;
     public Angle Direction = direction;
+    public bool Autofire = autofire;
 }
 
 [Serializable, NetSerializable]
