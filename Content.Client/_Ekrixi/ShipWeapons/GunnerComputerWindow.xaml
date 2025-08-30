@@ -75,7 +75,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center">
 
-                    <Button SetSize="90 90" Name="AutofireButton" Text="{Loc 'gunner-computer-button-autofire-text' }" />
+                    <Button ToggleMode="True" Access="Public" SetSize="90 90" Name="AutofireButton" Text="{Loc 'gunner-computer-button-autofire-text' }" />
                     <Button SetSize="90 90" Name="FireButton" Text="{Loc 'gunner-computer-button-fire-text' }" />
 
                     <Button SetSize="90 90" Name="EjectButton" Text="{Loc 'gunner-computer-button-eject-text' }" />

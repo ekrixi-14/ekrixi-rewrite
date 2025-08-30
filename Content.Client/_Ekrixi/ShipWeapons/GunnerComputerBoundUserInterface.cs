@@ -36,9 +36,9 @@ public sealed class GunnerComputerBoundUserInterface : BoundUserInterface
             // var msg = new PerformActionWeaponSendMessage(ShipWeaponAction.Eject);
             // SendMessage(msg);
         };
-        _window.OnAutofireClick += () =>
+        _window.OnAutofireClick += enabled =>
         {
-            var msg = new SetTurretAutoFireMessage(true);
+            var msg = new SetTurretAutoFireMessage(enabled);
             SendMessage(msg);
         };
         _window.OnChamberClick += () =>

@@ -60,7 +60,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
 
     private void OnFireTurretMessage(Entity<GunneryComputerComponent> ent, ref FireTurretMessage args)
     {
-        throw new NotImplementedException();
+        _deviceLinkSystem.InvokePort(ent.Owner, ent.Comp.SourceFire);
     }
 
     private void OnSetTurretAutoFireMessage(Entity<GunneryComputerComponent> ent, ref SetTurretAutoFireMessage args)
@@ -68,6 +68,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         var data = new NetworkPayload
         {
             [DeviceNetworkConstants.LogicState] = SignalState.High,
+            [DeviceNetworkConstants.StateEnabled] = args.AutoFire,
         };
         _deviceLinkSystem.InvokePort(ent.Owner, ent.Comp.SourceAutofire, data);
     }
