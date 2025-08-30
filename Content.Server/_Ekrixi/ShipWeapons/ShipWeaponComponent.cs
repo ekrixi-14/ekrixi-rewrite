@@ -31,6 +31,12 @@ public sealed partial class ShipWeaponComponent : Component
     /// How fast the weapon rotates
     /// </summary>
     [DataField] public double RotationSpeed = Math.PI;
+    /// <summary>
+    /// How often does the ship weapon fire updates to the computer?
+    /// </summary>
+    [DataField] public TimeSpan GunneryUpdateFrequency = TimeSpan.FromSeconds(0.5f);
+
+    public TimeSpan NextUpdateTime;
 
     public TransformComponent? WeaponTransform;
 

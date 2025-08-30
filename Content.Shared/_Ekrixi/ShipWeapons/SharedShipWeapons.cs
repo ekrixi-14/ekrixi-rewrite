@@ -15,23 +15,24 @@ public enum GunnerComputerUiKey : byte
 [Serializable, NetSerializable]
 public sealed class GunnerComputerBoundInterfaceState(
     NavInterfaceState state,
-    List<TurretData> turrets,
+    List<ShipWeaponData> turrets,
     List<Vector2> bulletRadarData,
     bool onGrid)
     : BoundUserInterfaceState
 {
     public readonly NavInterfaceState State = state;
-    public readonly List<TurretData> Turrets = turrets;
+    public readonly List<ShipWeaponData> Turrets = turrets;
     public readonly List<Vector2> BulletRadarData = bulletRadarData;
     public readonly bool OnGrid = onGrid;
 }
 
 [Serializable, NetSerializable]
-public struct TurretData(int currentAmmo, int ammoCapacity, NetCoordinates coordinates)
+public struct ShipWeaponData(int currentAmmo, int ammoCapacity, Angle direction, NetCoordinates coordinates)
 {
     public int CurrentAmmo = currentAmmo;
     public int AmmoCapacity = ammoCapacity;
     public NetCoordinates Coordinates = coordinates;
+    public Angle Direction = direction;
 }
 
 [Serializable, NetSerializable]

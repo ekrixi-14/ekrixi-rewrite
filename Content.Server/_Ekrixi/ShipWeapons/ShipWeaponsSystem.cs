@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Events;
@@ -10,12 +11,14 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Interaction;
 using Content.Shared.Rotatable;
+using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Ekrixi.ShipWeapons;
 
@@ -30,6 +33,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
+    [Dependency] private readonly IGameTiming Timing = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
     /// <inheritdoc/>
@@ -42,10 +46,16 @@ public sealed class ShipWeaponsSystem : EntitySystem
         SubscribeLocalEvent<GunneryComputerComponent, SignalReceivedEvent>(OnComputerSignalReceived);
         SubscribeLocalEvent<GunneryComputerComponent, ComponentStartup>(OnComputerComponentStartup);
         SubscribeLocalEvent<GunneryComputerComponent, ComponentInit>(OnComputerComponentInit);
+        SubscribeLocalEvent<GunneryComputerComponent, BeforeActivatableUIOpenEvent>(OnComputerUIOpen);
 
         SubscribeLocalEvent<GunneryComputerComponent, SetTurretAutoFireMessage>(OnSetTurretAutoFireMessage);
         SubscribeLocalEvent<GunneryComputerComponent, FireTurretMessage>(OnFireTurretMessage);
         SubscribeLocalEvent<GunneryComputerComponent, SetTurretTargetCoordinatesMessage>(OnSetTurretTargetCoordinates);
+    }
+
+    private void OnComputerUIOpen(Entity<GunneryComputerComponent> ent, ref BeforeActivatableUIOpenEvent args)
+    {
+        UpdateConsoleState(ent, ent);
     }
 
     private void OnSetTurretTargetCoordinates(Entity<GunneryComputerComponent> ent, ref SetTurretTargetCoordinatesMessage args)
@@ -93,12 +103,16 @@ public sealed class ShipWeaponsSystem : EntitySystem
             return;
         args.Data.TryGetValue<int>(ShipWeaponConstants.AmmoCount, out var ammoCount);
         args.Data.TryGetValue<int>(ShipWeaponConstants.MaxAmmoCount, out var ammoCapacity);
+        var xform = Transform(args.Trigger.Value);
 
-        ent.Comp.GunneryTurretData[args.Trigger.Value] = new GunneryTurretData
+        ent.Comp.GunneryTurretData[args.Trigger.Value] = new ShipWeaponData
         {
-            AmmoCount = ammoCount,
-            MaxAmmoCount = ammoCapacity
+            CurrentAmmo = ammoCount,
+            AmmoCapacity = ammoCapacity,
+            Direction = xform.LocalRotation,
+            Coordinates = EntityManager.GetNetCoordinates(xform.Coordinates),
         };
+        UpdateConsoleState(ent, ent);
     }
 
     private void OnComputerComponentStartup(Entity<GunneryComputerComponent> ent, ref ComponentStartup args)
@@ -132,7 +146,7 @@ public sealed class ShipWeaponsSystem : EntitySystem
         _deviceLinkSystem.InvokePort(ent.Owner, port, data);
     }
 
-    public bool TryFireShipWeapon(Entity<ShipWeaponComponent> ent, GunComponent? gun = null)
+    public bool TryFireShipWeapon(Entity<ShipWeaponComponent> ent, bool updateGunnery = true, GunComponent? gun = null)
     {
         if (!Resolve(ent, ref gun))
             return false;
@@ -147,7 +161,8 @@ public sealed class ShipWeaponsSystem : EntitySystem
         }
 
         _gunSystem.AttemptShoot(ent, EnsureComp<GunComponent>(ent));
-        UpdateGunneryData(ent, gun);
+        if (updateGunnery)
+            UpdateGunneryData(ent, gun);
         return true;
     }
 
@@ -203,10 +218,12 @@ public sealed class ShipWeaponsSystem : EntitySystem
         var docks = _console.GetAllDocks();
         var state = !onGrid ? _console.GetNavState(uid, docks) : _console.GetNavState(uid, docks, xform.Coordinates, xform.LocalRotation);
 
+        var turretData = component.GunneryTurretData.Select(data => data.Value).ToList();
+
         _uiSystem.SetUiState(
             uid,
             GunnerComputerUiKey.Key,
-            new GunnerComputerBoundInterfaceState(state, new (), new (), onGrid)
+            new GunnerComputerBoundInterfaceState(state, turretData, new (), onGrid)
         );
     }
 
@@ -220,7 +237,13 @@ public sealed class ShipWeaponsSystem : EntitySystem
             _rotate.TryRotateTo(entity, component.DesiredAngle, frameTime, component.AngleTolerance, component.RotationSpeed);
 
             if (component.AutoFire)
-                TryFireShipWeapon((entity, component));
+                TryFireShipWeapon((entity, component), false);
+
+
+            if (Timing.CurTime <= component.NextUpdateTime)
+                continue;
+            component.NextUpdateTime = Timing.CurTime + component.GunneryUpdateFrequency;
+            UpdateGunneryData((entity, component));
         }
     }
 }
