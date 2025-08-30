@@ -23,7 +23,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Ekrixi/Objects/Weapons/ShipWeapons/autocannon_120mm.rsi
+    sprite: _Ekrixi/Structures/Weapons/ShipWeapons/autocannon_120mm.rsi
     drawdepth: Mobs
     layers:
     - state: autocannon_120mm
