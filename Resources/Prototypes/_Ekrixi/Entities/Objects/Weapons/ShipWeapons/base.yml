@@ -23,12 +23,10 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    sprite: _Ekrixi/Objects/Weapons/ShipWeapons/autocannon_120mm.rsi
     drawdepth: Mobs
     layers:
-    - state: syndie_lethal
-  - type: CombatMode
-    toggleMouseRotator: false
+    - state: autocannon_120mm
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -56,8 +54,6 @@
             max: 5
   - type: NoRotateOnInteract
   - type: NoRotateOnMove
-  - type: Input
-    context: "human"
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -70,10 +66,6 @@
     ports:
     - EkrixiDataGunnery
   - type: ShipWeapon # Define this as a ship weapon
-  - type: MouseRotator
-    angleTolerance: 5
-    rotationSpeed: 180
-    simple4DirMode: false
   - type: Gun # Make the gun actually owrk
     fireRate: 6
     selectedMode: FullAuto
